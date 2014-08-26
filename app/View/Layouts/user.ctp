@@ -31,9 +31,9 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version());
         <?php echo $this->Html->css('font'); ?>
         <?php
         echo $this->Html->charset();
-        echo $this->Html->meta('icon','img/icon.ico');
+        echo $this->Html->meta('icon');
         echo $this->Html->css(array('bootstrap-responsive.min', 'bootstrap.min', 'pages/dashboard', 'custom', 'base-admin-3-responsive', 'base-admin-3', 'absolution', 'font-awesome.min', 'select2', 'cd'));
-        echo $this->Html->script(array('jquery-2.0.3.min', 'jquery-migrate-1.2.1.min', 'jquery-ui.min', 'libs/bootstrap.min', 'select2.min', 'jquery.countdown', 'jquery.validate.min','jquery.unveil'));
+        echo $this->Html->script(array('jquery-2.0.3.min', 'jquery-migrate-1.2.1.min', 'jquery-ui.min', 'libs/bootstrap.min', 'select2.min', 'jquery.countdown', 'jquery.validate.min'));
         echo $this->Html->css('/usermgmt/css/umstyle');
         if (isset($js)) {
             echo $this->Html->script($js);
@@ -64,7 +64,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version());
                 <?php echo $this->element('sql_dump'); ?>
             </div> <!-- /container -->
         </div> <!-- /main -->
-        <?php echo $this->element('footer');       ?>
+        <?php //echo $this->element('footer');       ?>
         <div class="footer">
             <div class="container">
                 <div class="row">

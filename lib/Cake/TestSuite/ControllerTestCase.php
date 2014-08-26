@@ -41,15 +41,13 @@ class ControllerTestDispatcher extends Dispatcher {
 /**
  * Use custom routes during tests
  *
- * @var bool
+ * @var boolean
  */
 	public $loadRoutes = true;
 
 /**
  * Returns the test controller
  *
- * @param CakeRequest $request The request instance.
- * @param CakeResponse $response The response instance.
  * @return Controller
  */
 	protected function _getController($request, $response) {
@@ -122,14 +120,14 @@ abstract class ControllerTestCase extends CakeTestCase {
 /**
  * Automatically mock controllers that aren't mocked
  *
- * @var bool
+ * @var boolean
  */
 	public $autoMock = true;
 
 /**
  * Use custom routes during tests
  *
- * @var bool
+ * @var boolean
  */
 	public $loadRoutes = true;
 
@@ -173,7 +171,7 @@ abstract class ControllerTestCase extends CakeTestCase {
  * Once a test has been run on a controller it should be rebuilt
  * to clean up properties.
  *
- * @var bool
+ * @var boolean
  */
 	protected $_dirtyController = false;
 

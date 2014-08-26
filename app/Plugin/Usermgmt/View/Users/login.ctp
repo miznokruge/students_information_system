@@ -18,8 +18,6 @@
   along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
  */
 echo $this->Common->flash();
-echo $this->Html->script(array('demo/signin', 'jquery.cycle.all'));
-echo $this->Html->css(array('pages/signin'));
 ?>
 <div class="row">
     <div class="col-md-6">

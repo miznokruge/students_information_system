@@ -142,7 +142,7 @@ class ProjectTask extends AppShell {
 /**
  * Checks PHP's include_path for CakePHP.
  *
- * @return bool Indicates whether or not CakePHP exists on include_path
+ * @return boolean Indicates whether or not CakePHP exists on include_path
  */
 	public function cakeOnIncludePath() {
 		$paths = explode(PATH_SEPARATOR, ini_get('include_path'));
@@ -231,7 +231,7 @@ class ProjectTask extends AppShell {
  * and points app/console/cake.php to the right place
  *
  * @param string $path Project path.
- * @return bool success
+ * @return boolean success
  */
 	public function consolePath($path) {
 		$File = new File($path . 'Console' . DS . 'cake.php');
@@ -252,7 +252,7 @@ class ProjectTask extends AppShell {
  * Generates and writes 'Security.salt'
  *
  * @param string $path Project path
- * @return bool Success
+ * @return boolean Success
  */
 	public function securitySalt($path) {
 		$File = new File($path . 'Config' . DS . 'core.php');
@@ -272,7 +272,7 @@ class ProjectTask extends AppShell {
  * Generates and writes 'Security.cipherSeed'
  *
  * @param string $path Project path
- * @return bool Success
+ * @return boolean Success
  */
 	public function securityCipherSeed($path) {
 		$File = new File($path . 'Config' . DS . 'core.php');
@@ -293,7 +293,7 @@ class ProjectTask extends AppShell {
  * Writes cache prefix using app's name
  *
  * @param string $dir Path to project
- * @return bool Success
+ * @return boolean Success
  */
 	public function cachePrefix($dir) {
 		$app = basename($dir);
@@ -310,8 +310,8 @@ class ProjectTask extends AppShell {
  * Generates and writes CAKE_CORE_INCLUDE_PATH
  *
  * @param string $path Project path
- * @param bool $hardCode Whether or not define calls should be hardcoded.
- * @return bool Success
+ * @param boolean $hardCode Whether or not define calls should be hardcoded.
+ * @return boolean Success
  */
 	public function corePath($path, $hardCode = true) {
 		if (dirname($path) !== CAKE_CORE_INCLUDE_PATH) {
@@ -331,8 +331,8 @@ class ProjectTask extends AppShell {
  * Replaces the __CAKE_PATH__ placeholder in the template files.
  *
  * @param string $filename The filename to operate on.
- * @param bool $hardCode Whether or not the define should be uncommented.
- * @return bool Success
+ * @param boolean $hardCode Whether or not the define should be uncommented.
+ * @return boolean Success
  */
 	protected function _replaceCorePath($filename, $hardCode) {
 		$contents = file_get_contents($filename);
@@ -354,7 +354,7 @@ class ProjectTask extends AppShell {
  * Enables Configure::read('Routing.prefixes') in /app/Config/core.php
  *
  * @param string $name Name to use as admin routing
- * @return bool Success
+ * @return boolean Success
  */
 	public function cakeAdmin($name) {
 		$path = (empty($this->configPath)) ? APP . 'Config' . DS : $this->configPath;

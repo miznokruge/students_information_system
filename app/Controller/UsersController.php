@@ -65,8 +65,6 @@ class UsersController extends AppController {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		}
-		$userGroups = $this->User->UserGroup->find('list');
-		$this->set(compact('userGroups'));
 	}
 
 /**
@@ -91,8 +89,6 @@ class UsersController extends AppController {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 			$this->request->data = $this->User->find('first', $options);
 		}
-		$userGroups = $this->User->UserGroup->find('list');
-		$this->set(compact('userGroups'));
 	}
 
 /**

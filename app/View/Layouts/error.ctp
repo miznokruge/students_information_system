@@ -27,7 +27,7 @@ $cakeDescription = __d('cake_dev', 'CakePHP: the rapid development php framework
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
-		echo $this->Html->meta('icon','img/icon.ico');
+		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('cake.generic');
 

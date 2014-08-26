@@ -40,7 +40,7 @@ class AclNodeTwoTestBase extends AclNode {
 /**
  * cacheSources property
  *
- * @var bool
+ * @var boolean
  */
 	public $cacheSources = false;
 }
@@ -127,7 +127,7 @@ class PermissionTwoTest extends Permission {
 /**
  * cacheQueries property
  *
- * @var bool
+ * @var boolean
  */
 	public $cacheQueries = false;
 
@@ -141,7 +141,7 @@ class PermissionTwoTest extends Permission {
 /**
  * actsAs property
  *
- * @var mixed
+ * @var mixed null
  */
 	public $actsAs = null;
 }
@@ -487,7 +487,7 @@ class DbAclTest extends CakeTestCase {
  * Generates a list of the current aro and aco structures and a grid dump of the permissions that are defined
  * Only designed to work with the db based ACL
  *
- * @param bool $treesToo
+ * @param boolean $treesToo
  * @return void
  */
 	protected function _debug($printTreesToo = false) {
@@ -534,7 +534,7 @@ class DbAclTest extends CakeTestCase {
  * Used by debug to format strings used in the data dump
  *
  * @param string $string
- * @param int $len
+ * @param integer $len
  * @return void
  */
 	protected function _pad($string = '', $len = 14) {

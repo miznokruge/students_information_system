@@ -1,23 +1,9 @@
 <div class="col-md-6 col-xs-12">
-
-	<div class="cycle-slideshow"
-		 data-cycle-fx="fade"
-		 data-cycle-timeout="0"
-		 data-cycle-speed="1000"
-		 data-cycle-delay="300"
-		 data-cycle-prev="#prev"
-		 data-cycle-next="#next"
-		 >
-		<div class="cycle-overlay"></div>
-		<?php echo $this->Html->image('slides/a.png', array("class" => "c-image",'data-cycle-title'=>'lala','data-cycle-desc'=>'lala')); ?>
-		<?php echo $this->Html->image('slides/b.jpg', array("class" => "c-image",'data-cycle-title'=>'lele','data-cycle-desc'=>'lele')); ?>
-		<?php echo $this->Html->image('slides/c.jpg', array("class" => "c-image",'data-cycle-title'=>'lolo','data-cycle-desc'=>'lolo')); ?>
-	</div>
-
-	<div class="center" id="slider_pager">
-		<a href=# id="prev">Prev</a> 
-		<a href=# id="next">Next</a>
-	</div>
+    <div id="lala">
+		<?php echo $this->Html->image('slides/a.png', array("class" => "c-image")); ?>
+		<?php echo $this->Html->image('slides/b.jpg', array("class" => "c-image")); ?>
+		<?php echo $this->Html->image('slides/c.jpg', array("class" => "c-image")); ?>
+    </div>
     <div id="slider_pager">
         <a href="#" id="prev"><span>Prev</span></a>
         <a href="#" id="next"><span>Next</span></a>
@@ -65,7 +51,7 @@
 		<div class="widget-content">
 			<h4>Instructor</h4>
 			<ul>
-				<li>Access <?php echo $config['APPNAME']['v'] ?> from work or home</li>
+				<li>Access QuizStar from work or home</li>
 				<li>Create quizzes for students to take online</li>
 				<li>Utilize the robust Report tools</li>
 				<li>Create multilingual quizzes</li>
@@ -90,26 +76,6 @@
 				<li>Access from any Internet-connected computer</li>
 				<li>Allow students to complete and review</li>
 			</ol>
-		</div>
-	</div>
-	<div class="widget">
-		<div class="widget-header">
-			<h3>Online testing made easy</h3>
-		</div>
-		<div class="widget-content">
-			<ul class="homelist tourlist">
-				<li>Instant test results</li>
-				<li>Unlimited quizzes and questions</li>
-				<li>Import questions</li>
-				<li>Randomize questions and/or answers</li>
-				<li>Embed quizzes directly in your website</li>
-				<li>Add time limits and preset test availability dates</li>
-				<li>Multiple choice, short answer, essay &amp; more question types</li>
-				<li>Upload images and documents and embed videos</li>
-				<li>Sell your quizzes online</li>
-				<li><a href="/online-testing/quiz-features/?trk=features">View table of features</a></li>
-				<li>View Screenshots in our <a href="http://www.classmarker.com/online-testing/manual/?trk=features">User Manual</a></li>
-			</ul>
 		</div>
 	</div>
 </div>
@@ -166,7 +132,7 @@
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
     }
-    .cycle-slideshow{
+    #lala{
         margin: 5px auto;
         -moz-border-radius:5px;
         border-radius: 5px;
@@ -181,3 +147,27 @@
         -webkit-border-radius: 5px;
     }
 </style>
+<script>
+	$(function() {
+		$('#lala').cycle({
+			speed: 1000,
+			delay: 300,
+			fx: 'fade',
+			prev: '#prev',
+			next: '#next',
+			pager: '#nav',
+			pagerAnchorBuilder: pagerFactory
+		});
+		function pagerFactory(idx, slide) {
+			var s = idx > 2 ? ' style="display:none"' : '';
+			return '<li' + s + '><a href="#">' + (idx + 1) + '</a></li>';
+		}
+
+//		$(".news-items").cycle(
+//				{
+//					speed: 500,
+//					delay: 1000,
+//					fx: 'scrollUp'
+//				});
+	});
+</script>

@@ -23,7 +23,6 @@ App::uses('HtmlHelper', 'View/Helper');
 App::uses('FormHelper', 'View/Helper');
 App::uses('ClassRegistry', 'Utility');
 App::uses('Folder', 'Utility');
-App::uses('CakePlugin', 'Core');
 
 if (!defined('FULL_BASE_URL')) {
 	define('FULL_BASE_URL', 'http://cakephp.org');
@@ -46,7 +45,7 @@ class TheHtmlTestController extends Controller {
 /**
  * uses property
  *
- * @var mixed
+ * @var mixed null
  */
 	public $uses = null;
 }
@@ -907,7 +906,7 @@ class HtmlHelperTest extends CakeTestCase {
 	public function testPluginScriptTimestamping() {
 		CakePlugin::load('TestPlugin');
 
-		$pluginPath = CakePlugin::path('TestPlugin');
+		$pluginPath = App::pluginPath('TestPlugin');
 		$pluginJsPath = $pluginPath . 'webroot/js';
 		$this->skipIf(!is_writable($pluginJsPath), $pluginJsPath . ' is not Writable, timestamp testing has been skipped.');
 

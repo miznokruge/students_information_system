@@ -64,7 +64,7 @@ class ScaffoldMockControllerWithFields extends Controller {
  * function beforeScaffold
  *
  * @param string method
- * @return bool true
+ * @return boolean true
  */
 	public function beforeScaffold($method) {
 		$this->set('scaffoldFields', array('title'));

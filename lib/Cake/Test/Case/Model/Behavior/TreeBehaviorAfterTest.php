@@ -31,7 +31,7 @@ class TreeBehaviorAfterTest extends CakeTestCase {
 /**
  * Whether backup global state for each test method or not
  *
- * @var bool
+ * @var boolean
  */
 	public $backupGlobals = false;
 

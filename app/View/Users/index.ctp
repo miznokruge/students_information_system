@@ -11,32 +11,28 @@
             <span class="input-group-btn" style="margin: auto 5px;">
                 <?php echo $this->Html->link('<i class="icon icon-refresh"></i> View All',array('controller'=>'Users','action'=>'index'),array('class'=>'btn btn-default','escape'=>false));?>            </span>
         </div>
-        <?php echo $this->Form->end();?>        <table class="table table-striped table-bordered">
+        <?php echo $this->Form->end();?>        <table class="table table-striped table-bordered table-responsive">
             <tr>
                                                                 <th><?php echo $this->Paginator->sort('id'); ?></th>
-                                                                                                <th><?php echo $this->Paginator->sort('user_group_id'); ?></th>
                                                                                                 <th><?php echo $this->Paginator->sort('username'); ?></th>
                                                                                                 <th><?php echo $this->Paginator->sort('password'); ?></th>
-                                                                                                <th><?php echo $this->Paginator->sort('salt'); ?></th>
                                                                                                 <th><?php echo $this->Paginator->sort('email'); ?></th>
-                                                                                                <th><?php echo $this->Paginator->sort('first_name'); ?></th>
-                                                                                                <th><?php echo $this->Paginator->sort('last_name'); ?></th>
-                                                                                                <th><?php echo $this->Paginator->sort('email_verified'); ?></th>
-                                                                                                                                                                                                                                                                                                                                                                                                                                        <th class="actions"><?php echo __('Actions'); ?></th>
+                                                                                                <th><?php echo $this->Paginator->sort('template'); ?></th>
+                                                                                                <th><?php echo $this->Paginator->sort('cancreate'); ?></th>
+                                                                                                <th><?php echo $this->Paginator->sort('isadmin'); ?></th>
+                                                                                                <th><?php echo $this->Paginator->sort('approved'); ?></th>
+                                                                                                        <th class="actions"><?php echo __('Actions'); ?></th>
             </tr>
             <?php foreach ($users as $user): ?>
 	<tr>
 		<td><?php echo h($user['User']['id']); ?>&nbsp;</td>
-		<td>
-			<?php echo $this->Html->link($user['UserGroup']['name'], array('controller' => 'user_groups', 'action' => 'view', $user['UserGroup']['id'])); ?>
-		</td>
 		<td><?php echo h($user['User']['username']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['password']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['salt']); ?>&nbsp;</td>
 		<td><?php echo h($user['User']['email']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['first_name']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['last_name']); ?>&nbsp;</td>
-		<td><?php echo h($user['User']['email_verified']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['template']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['cancreate']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['isadmin']); ?>&nbsp;</td>
+		<td><?php echo h($user['User']['approved']); ?>&nbsp;</td>
 		<td class="actions">
 		<div class="btn-group">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
@@ -77,8 +73,10 @@
             <div class="widget-content">
                 <ul class="nav nav-list">
                     <li><?php echo $this->Html->link(__('New User'), array('action' => 'add')); ?></li>
-                    		<li><?php echo $this->Html->link(__('List User Groups'), array('controller' => 'user_groups', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New User Group'), array('controller' => 'user_groups', 'action' => 'add')); ?> </li>
+                    		<li><?php echo $this->Html->link(__('List Comments'), array('controller' => 'comments', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Comment'), array('controller' => 'comments', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('List Ratings'), array('controller' => 'ratings', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Rating'), array('controller' => 'ratings', 'action' => 'add')); ?> </li>
                 </ul>
             </div>
         </div>

@@ -1,3 +1,6 @@
+
+
+
 <div class="row">
 
     <div class="col-sm-6">
@@ -244,3 +247,4 @@
 
 <!-- inline scripts related to this page -->
 <script src="<?php echo $this->webroot; ?>js/pages/charts-other.js"></script>
+

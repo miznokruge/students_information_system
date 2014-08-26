@@ -18,8 +18,8 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
-App::uses('Model', 'Model');
+#App::uses('Model', 'Model');
+App::uses('SoftDeletableModel', 'CakeSoftDelete.Model');
 
 /**
  * Application model for Cake.
@@ -29,5 +29,11 @@ App::uses('Model', 'Model');
  *
  * @package       app.Model
  */
-class AppModel extends Model {
+class AppModel extends SoftDeletableModel {
+
+    public function beforeFind($queryData) {
+//        $queryData['conditions'][$this->alias . '.deleted'] = 0;
+//        return $queryData;
+    }
+
 }

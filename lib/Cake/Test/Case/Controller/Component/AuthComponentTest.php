@@ -31,14 +31,14 @@ class TestAuthComponent extends AuthComponent {
 /**
  * testStop property
  *
- * @var bool
+ * @var boolean
  */
 	public $testStop = false;
 
 /**
  * Helper method to add/set an authenticate object instance
  *
- * @param int $index The index at which to add/set the object
+ * @param integer $index The index at which to add/set the object
  * @param Object $object The object to add/set
  * @return void
  */
@@ -49,7 +49,7 @@ class TestAuthComponent extends AuthComponent {
 /**
  * Helper method to add/set an authorize object instance
  *
- * @param int $index The index at which to add/set the object
+ * @param integer $index The index at which to add/set the object
  * @param Object $object The object to add/set
  * @return void
  */
@@ -112,7 +112,7 @@ class AuthTestController extends Controller {
 /**
  * testUrl property
  *
- * @var mixed
+ * @var mixed null
  */
 	public $testUrl = null;
 
@@ -225,7 +225,7 @@ class AjaxAuthController extends Controller {
 /**
  * testUrl property
  *
- * @var mixed
+ * @var mixed null
  */
 	public $testUrl = null;
 
@@ -290,7 +290,7 @@ class AuthComponentTest extends CakeTestCase {
 /**
  * initialized property
  *
- * @var bool
+ * @var boolean
  */
 	public $initialized = false;
 

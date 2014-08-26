@@ -42,7 +42,7 @@ class FixtureTaskTest extends CakeTestCase {
 /**
  * Whether backup global state for each test method or not
  *
- * @var bool
+ * @var boolean
  */
 	public $backupGlobals = false;
 
@@ -244,6 +244,7 @@ class FixtureTaskTest extends CakeTestCase {
 
 /**
  * test that execute passes runs bake depending with named model.
+ *
  *
  * @return void
  */

@@ -31,7 +31,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version());
         <?php echo $this->Html->css('font');?>
         <?php
         echo $this->Html->charset();
-        echo $this->Html->meta('icon','img/icon.ico');
+        echo $this->Html->meta('icon');
         echo $this->Html->css(array('bootstrap-responsive.min', 'bootstrap.min', 'pages/dashboard', 'custom', 'base-admin-3-responsive', 'base-admin-3', 'ui-lightness/jquery-ui-1.10.0.custom.min', 'font-awesome.min'));
         echo $this->Html->script(array('libs/jquery-1.9.1.min', 'libs/jquery-ui-1.10.0.custom.min', 'libs/bootstrap.min', 'plugins/flot/jquery.flot', 'plugins/flot/jquery.flot.pie', 'plugins/flot/jquery.flot.resize', 'Application', 'charts/area', 'charts/donut'));
         echo $this->fetch('meta');

@@ -66,6 +66,7 @@ App::uses('LogEngineCollection', 'Log');
  * application. By using scopes you can control logging for each part
  * of your application and still keep standard log levels.
  *
+ *
  * See CakeLog::config() and CakeLog::write() for more information
  * on scopes
  *
@@ -181,7 +182,7 @@ class CakeLog {
  * @param string $key The keyname for this logger, used to remove the
  *    logger later.
  * @param array $config Array of configuration information for the logger
- * @return bool success of configuration.
+ * @return boolean success of configuration.
  * @throws CakeLogException
  */
 	public static function config($key, $config) {
@@ -253,7 +254,7 @@ class CakeLog {
  * }}}
  *
  * @param array $levels array
- * @param bool $append true to append, false to replace
+ * @param boolean $append true to append, false to replace
  * @return array Active log levels
  */
 	public static function levels($levels = array(), $append = true) {
@@ -302,7 +303,7 @@ class CakeLog {
  * Checks whether $streamName is enabled
  *
  * @param string $streamName to check
- * @return bool
+ * @return boolean
  * @throws CakeLogException
  */
 	public static function enabled($streamName) {
@@ -355,9 +356,9 @@ class CakeLog {
 /**
  * Gets the logging engine from the active streams.
  *
+ * @see BaseLog
  * @param string $streamName Key name of a configured stream to get.
  * @return mixed instance of BaseLog or false if not found
- * @see BaseLog
  */
 	public static function stream($streamName) {
 		if (empty(self::$_Collection)) {
@@ -391,13 +392,13 @@ class CakeLog {
  *
  * `CakeLog::write('warning', 'Stuff is broken here');`
  *
- * @param int|string $type Type of message being written. When value is an integer
+ * @param integer|string $type Type of message being written. When value is an integer
  *    or a string matching the recognized levels, then it will
  *    be treated log levels. Otherwise it's treated as scope.
  * @param string $message Message content to log
  * @param string|array $scope The scope(s) a log message is being created in.
  *    See CakeLog::config() for more information on logging scopes.
- * @return bool Success
+ * @return boolean Success
  */
 	public static function write($type, $message, $scope = array()) {
 		if (empty(self::$_Collection)) {
@@ -449,7 +450,7 @@ class CakeLog {
  * @param string $message log message
  * @param string|array $scope The scope(s) a log message is being created in.
  *    See CakeLog::config() for more information on logging scopes.
- * @return bool Success
+ * @return boolean Success
  */
 	public static function emergency($message, $scope = array()) {
 		return self::write(self::$_levelMap['emergency'], $message, $scope);
@@ -461,7 +462,7 @@ class CakeLog {
  * @param string $message log message
  * @param string|array $scope The scope(s) a log message is being created in.
  *    See CakeLog::config() for more information on logging scopes.
- * @return bool Success
+ * @return boolean Success
  */
 	public static function alert($message, $scope = array()) {
 		return self::write(self::$_levelMap['alert'], $message, $scope);
@@ -473,7 +474,7 @@ class CakeLog {
  * @param string $message log message
  * @param string|array $scope The scope(s) a log message is being created in.
  *    See CakeLog::config() for more information on logging scopes.
- * @return bool Success
+ * @return boolean Success
  */
 	public static function critical($message, $scope = array()) {
 		return self::write(self::$_levelMap['critical'], $message, $scope);
@@ -485,7 +486,7 @@ class CakeLog {
  * @param string $message log message
  * @param string|array $scope The scope(s) a log message is being created in.
  *    See CakeLog::config() for more information on logging scopes.
- * @return bool Success
+ * @return boolean Success
  */
 	public static function error($message, $scope = array()) {
 		return self::write(self::$_levelMap['error'], $message, $scope);
@@ -497,7 +498,7 @@ class CakeLog {
  * @param string $message log message
  * @param string|array $scope The scope(s) a log message is being created in.
  *    See CakeLog::config() for more information on logging scopes.
- * @return bool Success
+ * @return boolean Success
  */
 	public static function warning($message, $scope = array()) {
 		return self::write(self::$_levelMap['warning'], $message, $scope);
@@ -509,7 +510,7 @@ class CakeLog {
  * @param string $message log message
  * @param string|array $scope The scope(s) a log message is being created in.
  *    See CakeLog::config() for more information on logging scopes.
- * @return bool Success
+ * @return boolean Success
  */
 	public static function notice($message, $scope = array()) {
 		return self::write(self::$_levelMap['notice'], $message, $scope);
@@ -521,7 +522,7 @@ class CakeLog {
  * @param string $message log message
  * @param string|array $scope The scope(s) a log message is being created in.
  *    See CakeLog::config() for more information on logging scopes.
- * @return bool Success
+ * @return boolean Success
  */
 	public static function debug($message, $scope = array()) {
 		return self::write(self::$_levelMap['debug'], $message, $scope);
@@ -533,7 +534,7 @@ class CakeLog {
  * @param string $message log message
  * @param string|array $scope The scope(s) a log message is being created in.
  *    See CakeLog::config() for more information on logging scopes.
- * @return bool Success
+ * @return boolean Success
  */
 	public static function info($message, $scope = array()) {
 		return self::write(self::$_levelMap['info'], $message, $scope);

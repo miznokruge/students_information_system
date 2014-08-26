@@ -26,7 +26,7 @@ class TranslateArticleFixture extends CakeTestFixture {
 /**
  * table property
  *
- * @var string
+ * @var string 'i18n'
  */
 	public $table = 'article_i18n';
 

@@ -73,7 +73,7 @@ class PluginTask extends AppShell {
 /**
  * Interactive interface
  *
- * @param string $plugin The plugin name.
+ * @param string $plugin
  * @return void
  */
 	protected function _interactive($plugin = null) {
@@ -90,7 +90,7 @@ class PluginTask extends AppShell {
  * Bake the plugin, create directories and files
  *
  * @param string $plugin Name of the plugin in CamelCased format
- * @return bool
+ * @return boolean
  */
 	public function bake($plugin) {
 		$pathOptions = App::path('plugins');
@@ -184,7 +184,7 @@ class PluginTask extends AppShell {
 /**
  * find and change $this->path to the user selection
  *
- * @param array $pathOptions The list of paths to look in.
+ * @param array $pathOptions
  * @return void
  */
 	public function findPath($pathOptions) {

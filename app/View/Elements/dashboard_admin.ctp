@@ -1,34 +1,9 @@
 <div class="col-md-6 col-xs-12">
-	<div class="widget widget-nopad stacked">
-        <div class="widget-header">
-            <i class="icon-envelope"></i>
-            <h3>Unread Message</h3>
-        </div> <!-- /widget-header -->
-        <div class="widget-content">
-            <ul class="news-items">
-				<?php foreach ($list_message_unread as $s) { ?>
-					<li>
-						<div class="news-item-detail col-md-2">
-							<?php echo $s['Sender']['username']; ?>
-						</div>
-						<div class="news-item-detail col-md-6">
-							<?php echo $this->Html->link($s['Message']['title'], array('controller' => 'messages', 'action' => 'view', $s['Message']['id']), array('class' => 'news-item-title', 'div' => false)); ?>
-						</div>
-						<div class="news-item-date col-md-4 pull-right"><?php
-							$formatted = date("d M", strtotime($s['Message']['created']));
-							if ($formatted == date("d M")) {
-								$formatted.=' ' . date("H:i", strtotime($s['Message']['created']));
-							} else {
-								$formatted.=' ' . date("Y") . ' ' . date("H:i", strtotime($s['Message']['created']));
-							}
-							echo $formatted;
-							?>
-						</div>
-					</li>
-				<?php } ?>
-            </ul>
-        </div> <!-- /widget-content -->
-    </div> <!-- /widget -->
+    <div id="lala">
+        <?php echo $this->Html->image('slides/a.png', array("class" => "c-image")); ?>
+        <?php echo $this->Html->image('slides/b.jpg', array("class" => "c-image")); ?>
+        <?php echo $this->Html->image('slides/c.jpg', array("class" => "c-image")); ?>
+    </div>
     <div class="widget widget-nopad stacked">
         <div class="widget-header">
             <i class="icon-list-alt"></i>
@@ -36,32 +11,32 @@
         </div> <!-- /widget-header -->
         <div class="widget-content">
             <ul class="news-items">
-				<?php foreach ($stat as $s) { ?>
-					<li>
-						<div class="news-item-detail col-md-8">
-							<?php echo $this->Html->link($s['Set']['name'], array('controller' => 'sets', 'action' => 'view', $s['Set']['id']), array('class' => 'news-item-title', 'div' => false)); ?>
-							<p class="news-item-preview"><?php echo $s['User']['username']; ?></p>
-							<br/>
-							<?php
-							echo $this->Timeago->inWords($s['Statistic']['time']) . ' ago';
-							?>
-						</div>
-						<div class="news-item-date col-md-4 pull-right">
-							<span class="news-item-month">Score</span>
-							<span class="news-item-day"><?php echo $s['Statistic']['totalscore']; ?>/<?php echo $s['Set']['passpercent']; ?></span>
-							<span class="news-item-month">
-								<?php
-								if ($s['Statistic']['totalscore'] >= $s['Set']['passpercent']) {
-									$res = '<label class="label label-success">Passed</label>';
-								} else {
-									$res = '<label class="label label-danger">Failed</label>';
-								}
-								echo $res;
-								?>
-							</span>
-						</div>
-					</li>
-				<?php } ?>
+                <?php foreach ($stat as $s) { ?>
+                    <li>
+                        <div class="news-item-detail col-md-8">
+                            <?php echo $this->Html->link($s['Set']['name'], array('controller' => 'sets', 'action' => 'view', $s['Set']['id']), array('class' => 'news-item-title', 'div' => false)); ?>
+                            <p class="news-item-preview"><?php echo $s['User']['username']; ?></p>
+                            <br/>
+                            <?php
+                            echo $this->Timeago->inWords($s['Statistic']['time']) . ' ago';
+                            ?>
+                        </div>
+                        <div class="news-item-date col-md-4 pull-right">
+                            <span class="news-item-month">Score</span>
+                            <span class="news-item-day"><?php echo $s['Statistic']['totalscore']; ?>/<?php echo $s['Set']['passpercent']; ?></span>
+                            <span class="news-item-month">
+                                <?php
+                                if ($s['Statistic']['totalscore'] >= $s['Set']['passpercent']) {
+                                    $res = '<label class="label label-success">Passed</label>';
+                                } else {
+                                    $res = '<label class="label label-danger">Failed</label>';
+                                }
+                                echo $res;
+                                ?>
+                            </span>
+                        </div>
+                    </li>
+                <?php } ?>
             </ul>
         </div> <!-- /widget-content -->
     </div> <!-- /widget -->
@@ -195,11 +170,11 @@
         </div> <!-- /widget-header -->
         <div class="widget-content">
             <div class="shortcuts">
-				<?php echo $this->Html->link(__('<i class="shortcut-icon icon-list-alt"></i><span class="shortcut-label">Settings</span>'), array('controller' => 'configs'), array('escape' => false, 'class' => 'shortcut')); ?>
-				<?php echo $this->Html->link(__('<i class="shortcut-icon icon-bookmark"></i><span class="shortcut-label">Products</span>'), array('controller' => 'products'), array('escape' => false, 'class' => 'shortcut')); ?>
-				<?php echo $this->Html->link(__('<i class="shortcut-icon icon-signal"></i><span class="shortcut-label">Customers</span>'), array('controller' => 'customers'), array('escape' => false, 'class' => 'shortcut')); ?>
-				<?php echo $this->Html->link(__('<i class="shortcut-icon icon-list-alt"></i><span class="shortcut-label">Suppliers</span>'), array('controller' => 'suppliers'), array('escape' => false, 'class' => 'shortcut')); ?>
-				<?php echo $this->Html->link(__('<i class="shortcut-icon icon-list-alt"></i><span class="shortcut-label">Application Setting</span>'), array('controller' => 'app_configs'), array('escape' => false, 'class' => 'shortcut')); ?>
+                <?php echo $this->Html->link(__('<i class="shortcut-icon icon-list-alt"></i><span class="shortcut-label">Settings</span>'), array('controller' => 'configs'), array('escape' => false, 'class' => 'shortcut')); ?>
+                <?php echo $this->Html->link(__('<i class="shortcut-icon icon-bookmark"></i><span class="shortcut-label">Products</span>'), array('controller' => 'products'), array('escape' => false, 'class' => 'shortcut')); ?>
+                <?php echo $this->Html->link(__('<i class="shortcut-icon icon-signal"></i><span class="shortcut-label">Customers</span>'), array('controller' => 'customers'), array('escape' => false, 'class' => 'shortcut')); ?>
+                <?php echo $this->Html->link(__('<i class="shortcut-icon icon-list-alt"></i><span class="shortcut-label">Suppliers</span>'), array('controller' => 'suppliers'), array('escape' => false, 'class' => 'shortcut')); ?>
+                <?php echo $this->Html->link(__('<i class="shortcut-icon icon-list-alt"></i><span class="shortcut-label">Application Setting</span>'), array('controller' => 'app_configs'), array('escape' => false, 'class' => 'shortcut')); ?>
                 <a href="javascript:;" class="shortcut">
                     <i class="shortcut-icon icon-bookmark"></i>
                     <span class="shortcut-label">Bookmarks</span>
@@ -238,17 +213,17 @@
         </div> <!-- /widget-header -->
         <div class="widget-content">
             <ul class="dashboard-list">
-				<?php foreach ($users as $user) { ?>
-					<li>
-						<a href="widgets.html#">
-							<img src="<?php echo $this->webroot; ?>img/avatar/<?php echo $user['User']['avatar']; ?>" alt="Lucas" class="avatar">
-						</a>
-						<strong>Name:</strong> <a href="widgets.html#"><?php echo $user['User']['first_name']; ?> <?php echo $user['User']['last_name']; ?></a><br>
-						<strong>Since:</strong> Jul 25, 2012 11:09<br>
-						<strong>Status:</strong> <span class="label label-success">Approved</span>
-					</li>
-				<?php } ?>
-
+				<?php foreach($users as $user){?>
+                <li>
+                    <a href="widgets.html#">
+                        <img src="<?php echo $this->webroot; ?>img/avatar/<?php echo $user['User']['avatar'];?>" alt="Lucas" class="avatar">
+                    </a>
+                    <strong>Name:</strong> <a href="widgets.html#"><?php echo $user['User']['first_name'];?> <?php echo $user['User']['last_name'];?></a><br>
+                    <strong>Since:</strong> Jul 25, 2012 11:09<br>
+                    <strong>Status:</strong> <span class="label label-success">Approved</span>
+                </li>
+				<?php }?>
+                
             </ul>
         </div> <!-- /widget-content -->
     </div> <!-- /widget -->
@@ -503,36 +478,36 @@
 
         </div> <!-- /widget-content -->
     </div> <!-- /widget -->
-
+	
 	<div class="widget">
 		<div class="widget-header">
 			<h3>Features</h3>
 		</div>
 		<div class="widget-content">
 			1. Quizstar
-			This is an awesome site to conduct online quizzes at school level. You can get 2 sites here, one is Student Site and another is Instructor site. If you want to conduct online exam for your students then sign up for Instructor site. Some of it attractive features include:
-			Manage classes and quizzes
-			Multiple languages are also supported
-			You can attach multimedia files to your questions
-			You can manage all students data and their passwords
-			After you signup you will get 3 managers, Class manager, Quiz manager and Report manager
-			By report manager you can generate your exam's/quiz's reports, and can determine student's performance.
-			2. ThatQuiz
-			This is one of the simple and best website to conduct online quizzes. If you want to conduct quizzes for your personal blog/website then this will be good for you. I personally like this website and have created many quizzes and exams using this. Some of its important features are:
-			You can create class and assign students in that class. You can also create passwords for them to access the quizzes
-			You can add images or video for your questions
-			You can  view student's grade reports and can edit them
-			You can send email notifications to your students about the online tests
-			You can merge smaller tests to create a larger tests.
-			3. Yacapaca
-			This is also a good website to conduct exam at school level. Some of its important features include:
-			There will be a inbox for you where you receive messages from students, other teachers, authors, administrators.
-			You will have a mark-book which will contain all your student's result where you can filter the data by Course, Student set, Date, Attempts, Sorting by name/forename/student set.
-			You can also do a quiz analysis where you will get very detailed feedback on students' performance on the quiz.
-			You will have an New Assignment page where you can search, explore and assign quizzes and tasks to your students.
-			You can get all other information at http://wiki.yacapaca.com/
+This is an awesome site to conduct online quizzes at school level. You can get 2 sites here, one is Student Site and another is Instructor site. If you want to conduct online exam for your students then sign up for Instructor site. Some of it attractive features include:
+Manage classes and quizzes
+Multiple languages are also supported
+You can attach multimedia files to your questions
+You can manage all students data and their passwords
+After you signup you will get 3 managers, Class manager, Quiz manager and Report manager
+By report manager you can generate your exam's/quiz's reports, and can determine student's performance.
+2. ThatQuiz
+This is one of the simple and best website to conduct online quizzes. If you want to conduct quizzes for your personal blog/website then this will be good for you. I personally like this website and have created many quizzes and exams using this. Some of its important features are:
+You can create class and assign students in that class. You can also create passwords for them to access the quizzes
+You can add images or video for your questions
+You can  view student's grade reports and can edit them
+You can send email notifications to your students about the online tests
+You can merge smaller tests to create a larger tests.
+3. Yacapaca
+This is also a good website to conduct exam at school level. Some of its important features include:
+There will be a inbox for you where you receive messages from students, other teachers, authors, administrators.
+You will have a mark-book which will contain all your student's result where you can filter the data by Course, Student set, Date, Attempts, Sorting by name/forename/student set.
+You can also do a quiz analysis where you will get very detailed feedback on students' performance on the quiz.
+You will have an New Assignment page where you can search, explore and assign quizzes and tasks to your students.
+You can get all other information at http://wiki.yacapaca.com/
 		</div>
-
+		
 	</div>
 
 </div> <!-- /span6 -->
@@ -553,18 +528,18 @@
     }
 </style>
 <script>
-	$(function() {
-		$("#lala").cycle({
-			speed: 1000,
-			delay: 300,
-			fx: 'scrollLeft'
-		});
-//
-//        $(".news-items").cycle(
-//                {
-//                    speed: 500,
-//                    delay: 1000,
-//                    fx: 'scrollUp'
-//                });
-	});
+    $(function() {
+        $("#lala").cycle({
+            speed: 1000,
+            delay: 300,
+            fx: 'scrollLeft'
+        });
+
+        $(".news-items").cycle(
+                {
+                    speed: 500,
+                    delay: 1000,
+                    fx: 'scrollUp'
+                });
+    });
 </script>

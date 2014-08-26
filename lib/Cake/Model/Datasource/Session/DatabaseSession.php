@@ -36,7 +36,7 @@ class DatabaseSession implements CakeSessionHandlerInterface {
 /**
  * Number of seconds to mark the session as expired
  *
- * @var int
+ * @var integer
  */
 	protected $_timeout;
 
@@ -67,7 +67,7 @@ class DatabaseSession implements CakeSessionHandlerInterface {
 /**
  * Method called on open of a database session.
  *
- * @return bool Success
+ * @return boolean Success
  */
 	public function open() {
 		return true;
@@ -76,7 +76,7 @@ class DatabaseSession implements CakeSessionHandlerInterface {
 /**
  * Method called on close of a database session.
  *
- * @return bool Success
+ * @return boolean Success
  */
 	public function close() {
 		return true;
@@ -85,7 +85,7 @@ class DatabaseSession implements CakeSessionHandlerInterface {
 /**
  * Method used to read from a database session.
  *
- * @param int|string $id The key of the value to read
+ * @param integer|string $id The key of the value to read
  * @return mixed The value of the key or false if it does not exist
  */
 	public function read($id) {
@@ -103,9 +103,9 @@ class DatabaseSession implements CakeSessionHandlerInterface {
 /**
  * Helper function called on write for database sessions.
  *
- * @param int $id ID that uniquely identifies session in database
+ * @param integer $id ID that uniquely identifies session in database
  * @param mixed $data The value of the data to be saved.
- * @return bool True for successful write, false otherwise.
+ * @return boolean True for successful write, false otherwise.
  */
 	public function write($id, $data) {
 		if (!$id) {
@@ -120,8 +120,8 @@ class DatabaseSession implements CakeSessionHandlerInterface {
 /**
  * Method called on the destruction of a database session.
  *
- * @param int $id ID that uniquely identifies session in database
- * @return bool True for successful delete, false otherwise.
+ * @param integer $id ID that uniquely identifies session in database
+ * @return boolean True for successful delete, false otherwise.
  */
 	public function destroy($id) {
 		return $this->_model->delete($id);
@@ -130,8 +130,8 @@ class DatabaseSession implements CakeSessionHandlerInterface {
 /**
  * Helper function called on gc for database sessions.
  *
- * @param int $expires Timestamp (defaults to current time)
- * @return bool Success
+ * @param integer $expires Timestamp (defaults to current time)
+ * @return boolean Success
  */
 	public function gc($expires = null) {
 		if (!$expires) {

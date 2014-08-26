@@ -27,6 +27,10 @@ $structure = array(
         'u' => 'myexam/',
         'l' => 'My exam',
         'i' => 'icon'),
+    'sets' => array(
+        'u' => 'sets/',
+        'l' => 'Sets',
+        'i' => 'icon-tagx'),
     'categories' => array(
         'u' => 'categories/',
         'l' => 'categories',
@@ -69,58 +73,6 @@ $structure = array(
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
-				<li class="dropdown hidden-xs">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Inbox"> <i class="icon-envelope shaded"></i>
-                        <?php if (count($list_message_unread) > 0) { ?>
-                            <label class="badge badge-warning"><?php echo count($list_message_unread); ?></label>
-                        <?php } ?>
-                    </a>
-                    <?php if (count($list_message_unread) > 0) { ?>
-                        <ul class="dropdown-menu messages">
-                            <?php foreach ($list_message_unread as $lsmsg) { ?>
-                                <li>
-                                    <a href="<?php echo $this->webroot; ?>messages/view/<?php echo $lsmsg['Message']['id']; ?>">
-
-                                        <span class="avatar"><img src="<?php echo $this->webroot; ?>img/avatar5.jpg" alt="Avatar"></span>
-                                        <span class="header">
-                                            <span class="from">
-                                                <?php echo $lsmsg['Sender']['username']; ?>
-                                            </span>
-                                            <span class = "time">
-                                                <?php
-                                                $formatted = date("d M", strtotime($lsmsg['Message']['created']));
-                                                if ($formatted == date("d M")) {
-                                                    $formatted.=' ' . date("H:i");
-                                                } else {
-                                                    $formatted.=' ' . date("Y");
-                                                }
-                                                echo $formatted;
-                                                ?>
-                                            </span>
-                                        </span>
-                                        <span class = "message">
-                                            <?php echo substr($lsmsg['Message']['content'], 0, 30); ?>
-                                        </span>
-                                    </a>
-                                </li>
-                                <?php
-                            }
-                            ?>
-                            <li>
-                                <?php echo $this->Html->link(__('View all messages'), array('controller' => 'messages', 'action' => 'index'), array('class' => 'dropdown-menu-sub-footer')); ?>
-                            </li>
-                        </ul>
-                    <?php } else { ?>
-                        <ul class="dropdown-menu messages">
-                            <li>
-                                <a href="#">No New message</a>
-                            </li>
-                            <li>
-                                <?php echo $this->Html->link(__('View all messages'), array('controller' => 'messages', 'action' => 'index'), array('class' => 'dropdown-menu-sub-footer')); ?>
-                            </li>
-                        </ul>
-                    <?php } ?>
-                </li>
                 <?php foreach ($structure AS $name => $data) { ?>
                     <li  class="dropdown <?php if ($this->request->params['controller'] == $data['i'] || $this->request->params['action'] == $data['i']) echo ' active'; ?>">
                         <?php

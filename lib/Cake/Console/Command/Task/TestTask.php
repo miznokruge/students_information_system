@@ -102,8 +102,8 @@ class TestTask extends BakeTask {
 /**
  * Handles interactive baking
  *
- * @param string $type The type of object to bake a test for.
- * @return string|bool
+ * @param string $type
+ * @return string|boolean
  */
 	protected function _interactive($type = null) {
 		$this->interactive = true;
@@ -129,7 +129,7 @@ class TestTask extends BakeTask {
  *
  * @param string $type Type of object to bake test case for ie. Model, Controller
  * @param string $className the 'cake name' for the class ie. Posts for the PostsController
- * @return string|bool
+ * @return string|boolean
  */
 	public function bake($type, $className) {
 		$plugin = null;
@@ -242,7 +242,7 @@ class TestTask extends BakeTask {
  * Currently only model, and controller are supported
  *
  * @param string $type The Type of object you are generating tests for eg. controller
- * @return bool
+ * @return boolean
  */
 	public function typeCanDetectFixtures($type) {
 		$type = strtolower($type);
@@ -254,7 +254,7 @@ class TestTask extends BakeTask {
  *
  * @param string $package The package of object you are generating tests for eg. controller
  * @param string $class the Classname of the class the test is being generated for.
- * @return bool
+ * @return boolean
  */
 	public function isLoadableClass($package, $class) {
 		App::uses($class, $package);
@@ -466,7 +466,7 @@ class TestTask extends BakeTask {
  * Controllers require a mock class.
  *
  * @param string $type The type of object tests are being generated for eg. controller.
- * @return bool
+ * @return boolean
  */
 	public function hasMockClass($type) {
 		$type = strtolower($type);

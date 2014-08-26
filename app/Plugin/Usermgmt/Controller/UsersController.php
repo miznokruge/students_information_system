@@ -174,7 +174,7 @@ class UsersController extends UserMgmtAppController {
      * @return void
      */
     public function login() {
-        $this->layout = 'guest';
+        $this->layout = 'default';
         if ($this->request->isPost()) {
             $this->User->set($this->data);
             if ($this->User->LoginValidate()) {

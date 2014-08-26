@@ -33,7 +33,7 @@ abstract class AbstractTransport {
 /**
  * Send mail
  *
- * @param CakeEmail $email CakeEmail instance.
+ * @param CakeEmail $email
  * @return array
  */
 	abstract public function send(CakeEmail $email);
@@ -41,7 +41,7 @@ abstract class AbstractTransport {
 /**
  * Set the config
  *
- * @param array $config Configuration options.
+ * @param array $config
  * @return array Returns configs
  */
 	public function config($config = null) {
@@ -55,7 +55,7 @@ abstract class AbstractTransport {
  * Help to convert headers in string
  *
  * @param array $headers Headers in format key => value
- * @param string $eol End of line string.
+ * @param string $eol
  * @return string
  */
 	protected function _headersToString($headers, $eol = "\r\n") {

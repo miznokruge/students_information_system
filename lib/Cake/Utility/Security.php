@@ -43,7 +43,7 @@ class Security {
  * Get allowed minutes of inactivity based on security level.
  *
  * @deprecated Exists for backwards compatibility only, not used by the core
- * @return int Allowed inactivity in minutes
+ * @return integer Allowed inactivity in minutes
  */
 	public static function inactiveMins() {
 		switch (Configure::read('Security.level')) {
@@ -70,7 +70,7 @@ class Security {
  * Validate authorization hash.
  *
  * @param string $authKey Authorization hash
- * @return bool Success
+ * @return boolean Success
  */
 	public static function validateAuthKey($authKey) {
 		return true;
@@ -151,7 +151,7 @@ class Security {
 /**
  * Sets the cost for they blowfish hash method.
  *
- * @param int $cost Valid values are 4-31
+ * @param integer $cost Valid values are 4-31
  * @return void
  */
 	public static function setCost($cost) {
@@ -252,7 +252,7 @@ class Security {
  * The salt length should not exceed 27. The salt will be composed of
  * [./0-9A-Za-z]{$length}.
  *
- * @param int $length The length of the returned salt
+ * @param integer $length The length of the returned salt
  * @return string The generated salt
  */
 	protected static function _salt($length = 22) {
@@ -277,12 +277,7 @@ class Security {
 			$salt = vsprintf('$2a$%02d$%s', array(self::$hashCost, $salt));
 		}
 
-		$invalidCipher = (
-			strpos($salt, '$2y$') !== 0 &&
-			strpos($salt, '$2x$') !== 0 &&
-			strpos($salt, '$2a$') !== 0
-		);
-		if ($salt === true || $invalidCipher || strlen($salt) < 29) {
+		if ($salt === true || strpos($salt, '$2a$') !== 0 || strlen($salt) < 29) {
 			trigger_error(__d(
 				'cake_dev',
 				'Invalid salt: %s for %s Please visit http://www.php.net/crypt and read the appropriate section for building %s salts.',
@@ -329,7 +324,7 @@ class Security {
 /**
  * Check the encryption key for proper length.
  *
- * @param string $key Key to check.
+ * @param string $key
  * @param string $method The method the key is being checked for.
  * @return void
  * @throws CakeException When key length is not 256 bit/32 bytes

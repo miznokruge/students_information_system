@@ -92,7 +92,7 @@ class CookieComponent extends Component {
  * Indicates that the cookie should only be transmitted over a secure HTTPS connection.
  * When set to true, the cookie will only be set if a secure connection exists.
  *
- * @var bool
+ * @var boolean
  */
 	public $secure = false;
 
@@ -112,7 +112,7 @@ class CookieComponent extends Component {
  * Set to true to make HTTP only cookies. Cookies that are HTTP only
  * are not accessible in JavaScript.
  *
- * @var bool
+ * @var boolean
  */
 	public $httpOnly = false;
 
@@ -185,7 +185,7 @@ class CookieComponent extends Component {
 /**
  * Start CookieComponent for use in the controller
  *
- * @param Controller $controller Controller instance.
+ * @param Controller $controller
  * @return void
  */
 	public function startup(Controller $controller) {
@@ -208,8 +208,8 @@ class CookieComponent extends Component {
  *
  * @param string|array $key Key for the value
  * @param mixed $value Value
- * @param bool $encrypt Set to true to encrypt value, false otherwise
- * @param int|string $expires Can be either the number of seconds until a cookie
+ * @param boolean $encrypt Set to true to encrypt value, false otherwise
+ * @param integer|string $expires Can be either the number of seconds until a cookie
  *   expires, or a strtotime compatible time offset.
  * @return void
  * @link http://book.cakephp.org/2.0/en/core-libraries/components/cookie.html#CookieComponent::write
@@ -293,8 +293,8 @@ class CookieComponent extends Component {
 /**
  * Returns true if given variable is set in cookie.
  *
- * @param string $key Variable name to check for
- * @return bool True if variable is there
+ * @param string $var Variable name to check for
+ * @return boolean True if variable is there
  */
 	public function check($key = null) {
 		if (empty($key)) {
@@ -400,8 +400,8 @@ class CookieComponent extends Component {
  * CookieComponent::write(string, string, boolean, 8400);
  * CookieComponent::write(string, string, boolean, '5 Days');
  *
- * @param int|string $expires Can be either Unix timestamp, or date string
- * @return int Unix timestamp
+ * @param integer|string $expires Can be either Unix timestamp, or date string
+ * @return integer Unix timestamp
  */
 	protected function _expire($expires = null) {
 		if ($expires === null) {

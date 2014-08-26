@@ -1,4 +1,6 @@
-<?php
+<pre>
+	<?php print_r($list_controller);?>
+</pre><?php
 $user = $this->UserAuth->getUser();
 $username = $user['User']['username'];
 $structure = array(
@@ -250,7 +252,7 @@ $structure = array(
 <nav class="navbar navbar-inverse" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
-        <?php echo $this->element('brand') ?>
+        <?php echo $this->element('brand');?>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -279,64 +281,37 @@ $structure = array(
                     </ul>
                 </li>
                 <li class="dropdown hidden-xs">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Inbox"> <i class="icon-envelope shaded"></i>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-envelope shaded"></i>
                         <?php if (count($list_message_unread) > 0) { ?>
                             <label class="badge badge-warning"><?php echo count($list_message_unread); ?></label>
                         <?php } ?>
                     </a>
-                    <?php if (count($list_message_unread) > 0) { ?>
-                        <ul class="dropdown-menu messages">
-                            <?php foreach ($list_message_unread as $lsmsg) { 
-								
-								if($lsmsg['Message']['parent_id']==0){
-									$id=$lsmsg['Message']['id'];
-								}else{
-									$id=$lsmsg['Message']['parent_id'];
-								}
-								
-								?>
-                                <li>
-                                    <a href="<?php echo $this->webroot; ?>messages/view/<?php echo $id; ?>">
+                    <ul class="dropdown-menu messages">
+                        <?php foreach ($list_message_unread as $lsmsg) { ?>
+                            <li>
+                                <a href="<?php echo $this->webroot; ?>messages/view/<?php echo $lsmsg['Message']['id']; ?>">
 
-                                        <span class="avatar"><img src="<?php echo $this->webroot; ?>img/avatar5.jpg" alt="Avatar"></span>
-                                        <span class="header">
-                                            <span class="from">
-                                                <?php echo $lsmsg['Sender']['username']; ?>
-                                            </span>
-                                            <span class = "time">
-                                                <?php
-                                                $formatted = date("d M", strtotime($lsmsg['Message']['created']));
-                                                if ($formatted == date("d M")) {
-                                                    $formatted.=' ' . date("H:i");
-                                                } else {
-                                                    $formatted.=' ' . date("Y");
-                                                }
-                                                echo $formatted;
-                                                ?>
-                                            </span>
+                                    <span class="avatar"><img src="<?php echo $this->webroot; ?>img/avatar5.jpg" alt="Avatar"></span>
+                                    <span class="header">
+                                        <span class="from">
+                                            <?php echo $lsmsg['Message']['name']; ?>
                                         </span>
-                                        <span class = "message">
-                                            <?php echo substr($lsmsg['Message']['content'], 0, 30); ?>
+                                        <span class = "time">
+                                            <?php echo date("d M", strtotime($lsmsg['Message']['created'])); ?>
                                         </span>
-                                    </a>
-                                </li>
-                                <?php
-                            }
-                            ?>
-                            <li>
-                                <?php echo $this->Html->link(__('View all messages'), array('controller' => 'messages', 'action' => 'index'), array('class' => 'dropdown-menu-sub-footer')); ?>
+                                    </span>
+                                    <span class = "message">
+                                        <?php echo substr($lsmsg['Message']['message'], 0, 30); ?>
+                                    </span>
+                                </a>
                             </li>
-                        </ul>
-                    <?php } else { ?>
-                        <ul class="dropdown-menu messages">
-                            <li>
-                                <a href="#">No New message</a>
-                            </li>
-                            <li>
-                                <?php echo $this->Html->link(__('View all messages'), array('controller' => 'messages', 'action' => 'index'), array('class' => 'dropdown-menu-sub-footer')); ?>
-                            </li>
-                        </ul>
-                    <?php } ?>
+                            <?php
+                        }
+                        ?>
+                        <li>
+                            <?php echo $this->Html->link(__('View all messages'), array('controller' => 'messages', 'action' => 'index'), array('class' => 'dropdown-menu-sub-footer')); ?>
+                        </li>
+                    </ul>
                 </li>
                 <li class="dropdown hidden-xs">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -346,13 +321,56 @@ $structure = array(
                         <li>
                             <span class="dropdown-menu-title">You have 11 notifications</span>
                         </li>
-                        <?php foreach ($list_notifications as $notification): ?>
-                            <li>
-                                <a href="index-2.html#">
-                                    + <i class="fa fa-user"></i> <span class="message">New user registration</span> <span class="time">1 min</span>
-                                </a>
-                            </li>
-                        <?php endforeach; ?>
+                        <li>
+                            <a href="index-2.html#">
+                                + <i class="fa fa-user"></i> <span class="message">New user registration</span> <span class="time">1 min</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index-2.html#">
+                                + <i class="fa fa-comment-o"></i> <span class="message">New comment</span> <span class="time">7 min</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index-2.html#">
+                                + <i class="fa fa-comment-o"></i> <span class="message">New comment</span> <span class="time">8 min</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index-2.html#">
+                                + <i class="fa fa-comment-o"></i> <span class="message">New comment</span> <span class="time">16 min</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index-2.html#">
+                                + <i class="fa fa-user"></i> <span class="message">New user registration</span> <span class="time">36 min</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index-2.html#">
+                                + <i class="fa fa-shopping-cart"></i> <span class="message">2 items sold</span> <span class="time">1 hour</span>
+                            </a>
+                        </li>
+                        <li class="warning">
+                            <a href="index-2.html#">
+                                - <i class="fa fa-user"></i> <span class="message">User deleted account</span> <span class="time">2 hour</span>
+                            </a>
+                        </li>
+                        <li class="warning">
+                            <a href="index-2.html#">
+                                - <i class="fa fa-shopping-cart"></i> <span class="message">Transaction was canceled</span> <span class="time">6 hour</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index-2.html#">
+                                + <i class="fa fa-comment-o"></i> <span class="message">New comment</span> <span class="time">yesterday</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="index-2.html#">
+                                + <i class="fa fa-user"></i> <span class="message">New user registration</span> <span class="time">yesterday</span>
+                            </a>
+                        </li>
                         <li>
                             <a class="dropdown-menu-sub-footer">View all notifications</a>
                         </li>

@@ -34,7 +34,7 @@ class ServerShell extends AppShell {
 /**
  * Default ListenPort
  *
- * @var int
+ * @var integer
  */
 	const DEFAULT_PORT = 80;
 

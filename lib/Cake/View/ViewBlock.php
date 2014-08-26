@@ -1,5 +1,7 @@
 <?php
 /**
+ *
+ *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -54,7 +56,7 @@ class ViewBlock {
 /**
  * Should the currently captured content be discarded on ViewBlock::end()
  *
- * @var bool
+ * @var boolean
  * @see ViewBlock::end()
  * @see ViewBlock::startIfEmpty()
  */

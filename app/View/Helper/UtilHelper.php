@@ -44,7 +44,7 @@ class UtilHelper extends AppHelper {
         }
         $html = '';
         if (!empty($messages)) {
-            //$html = '<div id="flash_message">';
+            $html = '<div id="flash_message">';
 
             if ($types) {
                 foreach ($types as $type) {
@@ -65,7 +65,7 @@ class UtilHelper extends AppHelper {
                     }
                 }
             }
-            //$html .= '</div>';
+            $html .= '</div>';
             if ($types) {
                 foreach ($types as $type) {
                     CakeSession::delete('messages.' . $type);
@@ -108,17 +108,7 @@ class UtilHelper extends AppHelper {
      */
     protected function _message($msg, $type) {
         if (!empty($msg)) {
-//            return '<div class="alert alert-' . (!empty($type) ? '' . $type : '') . ' alert-dismissable" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><strong>' . ucfirst($type) . '!</strong><p>' . $msg . '</p></div>';
-            return '<script>
-    $(function() {
-        $.msgGrowl({
-            title: "' . $type . '"
-            , text: "' . $msg . '",
-                position:"bottom-right"
-        });
-    });
-
-</script>';
+            return '<div class="alert alert-' . (!empty($type) ? '' . $type : '') . ' alert-dismissable" role="alert"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button><strong>' . ucfirst($type) . '!</strong><p>' . $msg . '</p></div>';
         }
         return '';
     }

@@ -115,7 +115,7 @@ class Sqlserver extends DboSource {
 /**
  * Connects to the database using options in the given configuration array.
  *
- * @return bool True if the database could be connected, else false
+ * @return boolean True if the database could be connected, else false
  * @throws MissingConnectionException
  */
 	public function connect() {
@@ -157,7 +157,7 @@ class Sqlserver extends DboSource {
 /**
  * Check that PDO SQL Server is installed/loaded
  *
- * @return bool
+ * @return boolean
  */
 	public function enabled() {
 		return in_array('sqlsrv', PDO::getAvailableDrivers());
@@ -166,7 +166,7 @@ class Sqlserver extends DboSource {
 /**
  * Returns an array of sources (tables) in the database.
  *
- * @param mixed $data The names
+ * @param mixed $data
  * @return array Array of table names in the database
  */
 	public function listSources($data = null) {
@@ -269,10 +269,10 @@ class Sqlserver extends DboSource {
 /**
  * Generates the fields list of an SQL query.
  *
- * @param Model $model The model to get fields for.
+ * @param Model $model
  * @param string $alias Alias table name
- * @param array $fields The fields so far.
- * @param bool $quote Whether or not to quote identfiers.
+ * @param array $fields
+ * @param boolean $quote
  * @return array
  */
 	public function fields(Model $model, $alias = null, $fields = array(), $quote = true) {
@@ -338,9 +338,9 @@ class Sqlserver extends DboSource {
  * Removes Identity (primary key) column from update data before returning to parent, if
  * value is empty.
  *
- * @param Model $model The model to insert into.
- * @param array $fields The fields to set.
- * @param array $values The values to set.
+ * @param Model $model
+ * @param array $fields
+ * @param array $values
  * @return array
  */
 	public function create(Model $model, $fields = null, $values = null) {
@@ -367,10 +367,10 @@ class Sqlserver extends DboSource {
  * Generates and executes an SQL UPDATE statement for given model, fields, and values.
  * Removes Identity (primary key) column from update data before returning to parent.
  *
- * @param Model $model The model to update.
- * @param array $fields The fields to set.
- * @param array $values The values to set.
- * @param mixed $conditions The conditions to use.
+ * @param Model $model
+ * @param array $fields
+ * @param array $values
+ * @param mixed $conditions
  * @return array
  */
 	public function update(Model $model, $fields = array(), $values = null, $conditions = null) {
@@ -389,8 +389,8 @@ class Sqlserver extends DboSource {
 /**
  * Returns a limit statement in the correct format for the particular database.
  *
- * @param int $limit Limit of results returned
- * @param int $offset Offset from which to start results
+ * @param integer $limit Limit of results returned
+ * @param integer $offset Offset from which to start results
  * @return string SQL limit/offset statement
  */
 	public function limit($limit, $offset = null) {
@@ -482,7 +482,7 @@ class Sqlserver extends DboSource {
 /**
  * Builds a map of the columns contained in a result
  *
- * @param PDOStatement $results The result to modify.
+ * @param PDOStatement $results
  * @return void
  */
 	public function resultSet($results) {
@@ -608,9 +608,9 @@ class Sqlserver extends DboSource {
  * Returns an array of all result rows for a given SQL query.
  * Returns false if no rows matched.
  *
- * @param Model $model The model to read from
- * @param array $queryData The query data
- * @param int $recursive How many layers to go.
+ * @param Model $model
+ * @param array $queryData
+ * @param integer $recursive
  * @return array|false Array of resultset rows, or false if no rows matched
  */
 	public function read(Model $model, $queryData = array(), $recursive = null) {
@@ -647,9 +647,9 @@ class Sqlserver extends DboSource {
 /**
  * Inserts multiple values into a table
  *
- * @param string $table The table to insert into.
- * @param string $fields The fields to set.
- * @param array $values The values to set.
+ * @param string $table
+ * @param string $fields
+ * @param array $values
  * @return void
  */
 	public function insertMulti($table, $fields, $values) {
@@ -699,8 +699,8 @@ class Sqlserver extends DboSource {
 /**
  * Format indexes for create table
  *
- * @param array $indexes The indexes to build
- * @param string $table The table to make indexes for.
+ * @param array $indexes
+ * @param string $table
  * @return string
  */
 	public function buildIndex($indexes, $table = null) {
@@ -744,8 +744,8 @@ class Sqlserver extends DboSource {
  * Returns number of affected rows in previous database operation. If no previous operation exists,
  * this returns false.
  *
- * @param mixed $source Unused
- * @return int Number of affected rows
+ * @param mixed $source
+ * @return integer Number of affected rows
  */
 	public function lastAffected($source = null) {
 		$affected = parent::lastAffected();

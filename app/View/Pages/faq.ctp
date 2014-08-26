@@ -11,7 +11,6 @@
 				<div class="faq-container">
 					<form class="faq-search"><input type="text" class="form-control" name="search" placeholder="Search by Keyword"></form>
 					<ol class="faq-list">
-						lala
 						<?php foreach ($faqs as $faq): ?>
 						<li id="faq-1">
 							<div class="faq-icon">

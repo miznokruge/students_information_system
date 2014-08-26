@@ -70,7 +70,7 @@ class MemcachedEngine extends CacheEngine {
  * To reinitialize the settings call Cache::engine('EngineName', [optional] settings = array());
  *
  * @param array $settings array of setting for the engine
- * @return bool True if the engine has been successfully initialized, false if not
+ * @return boolean True if the engine has been successfully initialized, false if not
  * @throws CacheException when you try use authentication without Memcached compiled with SASL support
  */
 	public function init($settings = array()) {
@@ -136,7 +136,6 @@ class MemcachedEngine extends CacheEngine {
  * Settings the memcached instance
  *
  * @throws CacheException when the Memcached extension is not built with the desired serializer engine
- * @return void
  */
 	protected function _setOptions() {
 		$this->_Memcached->setOption(Memcached::OPT_LIBKETAMA_COMPATIBLE, true);
@@ -199,8 +198,8 @@ class MemcachedEngine extends CacheEngine {
  *
  * @param string $key Identifier for the data
  * @param mixed $value Data to be cached
- * @param int $duration How long to cache the data, in seconds
- * @return bool True if the data was successfully cached, false on failure
+ * @param integer $duration How long to cache the data, in seconds
+ * @return boolean True if the data was successfully cached, false on failure
  * @see http://php.net/manual/en/memcache.set.php
  */
 	public function write($key, $value, $duration) {
@@ -225,7 +224,7 @@ class MemcachedEngine extends CacheEngine {
  * Increments the value of an integer cached key
  *
  * @param string $key Identifier for the data
- * @param int $offset How much to increment
+ * @param integer $offset How much to increment
  * @return New incremented value, false otherwise
  * @throws CacheException when you try to increment with compress = true
  */
@@ -237,7 +236,7 @@ class MemcachedEngine extends CacheEngine {
  * Decrements the value of an integer cached key
  *
  * @param string $key Identifier for the data
- * @param int $offset How much to subtract
+ * @param integer $offset How much to subtract
  * @return New decremented value, false otherwise
  * @throws CacheException when you try to decrement with compress = true
  */
@@ -249,7 +248,7 @@ class MemcachedEngine extends CacheEngine {
  * Delete a key from the cache
  *
  * @param string $key Identifier for the data
- * @return bool True if the value was successfully deleted, false if it didn't exist or couldn't be removed
+ * @return boolean True if the value was successfully deleted, false if it didn't exist or couldn't be removed
  */
 	public function delete($key) {
 		return $this->_Memcached->delete($key);
@@ -258,9 +257,8 @@ class MemcachedEngine extends CacheEngine {
 /**
  * Delete all keys from the cache
  *
- * @param bool $check If true no deletes will occur and instead CakePHP will rely
- *   on key TTL values.
- * @return bool True if the cache was successfully cleared, false otherwise
+ * @param boolean $check
+ * @return boolean True if the cache was successfully cleared, false otherwise
  */
 	public function clear($check) {
 		if ($check) {
@@ -316,8 +314,7 @@ class MemcachedEngine extends CacheEngine {
  * Increments the group value to simulate deletion of all keys under a group
  * old values will remain in storage until they expire.
  *
- * @param string $group The group to clear.
- * @return bool success
+ * @return boolean success
  */
 	public function clearGroup($group) {
 		return (bool)$this->_Memcached->increment($this->settings['prefix'] . $group);

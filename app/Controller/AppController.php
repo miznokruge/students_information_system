@@ -18,7 +18,6 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
-
 App::uses('Controller', 'Controller');
 
 /**
@@ -31,8 +30,8 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
-	
-	private $myAllowedActions = array();
+
+    private $myAllowedActions = array();
     public $components = array(
         'Paginator',
         'Session',
@@ -51,7 +50,6 @@ class AppController extends Controller {
         'Form' => array('className' => 'BoostCake.BoostCakeForm'),
         'Paginator' => array('className' => 'BoostCake.BoostCakePaginator'),
         'Js',
-        'Timeago',
         'Usermgmt.UserAuth',
 //        'Auth' => array(
 //            'authenticate' => array(
@@ -66,26 +64,53 @@ class AppController extends Controller {
         $this->UserAuth->beforeFilter($this);
     }
 
-	
-	public function beforeFilter() {
-		parent::beforeFilter();
-		if ($this->UserAuth->isLogged()) {
-            $this->layout = strtolower($this->UserAuth->getGroupName());
-			if(strtolower($this->UserAuth->getGroupName()=='admin')){
-				Configure::write('debug', $config['mode']['v']);
-			}
-        } else {
-            $this->layout = 'guest';
-        }
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->userAuth();
+        $this->_setLanguage();
+        # To enable portuguese language as main
+        Configure::write('Config.language', 'eng');
 
-		$this->loadModel("Config");
+        $this->loadModel("Config");
         $cekDebugMode = $this->Config->find("all");
         $config = array();
         foreach ($cekDebugMode as $x => $imin) {
             $config[$imin['Config']['name']] = array('v' => $imin['Config']['value'], 'e' => $imin['Config']['explanation']);
         }
-        
+        Configure::write('debug', $config['mode']['v']);
         $this->set('config', $config);
+        if ($this->UserAuth->isLogged()) {
+            $this->layout = strtolower($this->UserAuth->getGroupName());
+        } else {
+            $this->layout = 'guest';
+        }
+
+        //messagelist_unread
+        $this->loadModel("Message");
+        $this->set('list_message_unread', $this->Message->find("all", array('conditions' => array('Message.status' => 1))));
+
+        //tasklist_unread
+        $this->loadModel("Task");
+        $this->set('list_task_unread', $this->Task->find("all", array('conditions' => array('Task.status' => 1))));
+    
+		$this->set('list_controller',$this->Ctrl->get());
 		
-	}
+		}
+
+    private function _setLanguage() {
+        //if the cookie was previously set, and Config.language has not been set
+        //write the Config.language with the value from the Cookie
+        if ($this->Cookie->read('lang') && !$this->Session->check('Config.language')) {
+            $this->Session->write('Config.language', $this->Cookie->read('lang'));
+        }
+        //if the user clicked the language URL
+        else if (isset($this->params['language']) &&
+                ($this->params['language'] != $this->Session->read('Config.language'))
+        ) {
+            //then update the value in Session and the one in Cookie
+            $this->Session->write('Config.language', $this->params['language']);
+            $this->Cookie->write('lang', $this->params['language'], false, '20 days');
+        }
+    }
+
 }

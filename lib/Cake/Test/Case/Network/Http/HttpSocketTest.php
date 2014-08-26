@@ -93,7 +93,7 @@ class TestHttpSocket extends HttpSocket {
  * Convenience method for testing protected method
  *
  * @param string|array $uri URI to parse
- * @param bool|array $base If true use default URI config, otherwise indexed array to set 'scheme', 'host', 'port', etc.
+ * @param boolean|array $base If true use default URI config, otherwise indexed array to set 'scheme', 'host', 'port', etc.
  * @return array Parsed URI
  */
 	public function parseUri($uri = null, $base = array()) {
@@ -145,7 +145,7 @@ class TestHttpSocket extends HttpSocket {
 /**
  * Convenience method for testing protected method
  *
- * @param bool $hex true to get them as HEX values, false otherwise
+ * @param boolean $hex true to get them as HEX values, false otherwise
  * @return array Escape chars
  */
 	public function tokenEscapeChars($hex = true, $chars = null) {
@@ -174,14 +174,14 @@ class HttpSocketTest extends CakeTestCase {
 /**
  * Socket property
  *
- * @var mixed
+ * @var mixed null
  */
 	public $Socket = null;
 
 /**
  * RequestSocket property
  *
- * @var mixed
+ * @var mixed null
  */
 	public $RequestSocket = null;
 
@@ -1745,7 +1745,7 @@ class HttpSocketTest extends CakeTestCase {
 		$this->skipIf(!extension_loaded('openssl'), 'OpenSSL is not enabled cannot test SSL.');
 		$socket = new HttpSocket();
 		try {
-			$socket->get('https://tv.eurosport.com/');
+			$socket->get('https://typography.com');
 			$this->markTestSkipped('Found valid certificate, was expecting invalid certificate.');
 		} catch (SocketException $e) {
 			$message = $e->getMessage();
@@ -1762,12 +1762,10 @@ class HttpSocketTest extends CakeTestCase {
  */
 	public function statusProvider() {
 		return array(
-			array('HTTP/1.1 200 ', '200'),
-			array('HTTP/1.1 200    ', '200'),
-			array('HTTP/1.1 200', '200'),
-			array('HTTP/1.1 200  OK', '200', 'OK'),
-			array('HTTP/1.1 404 Not Found', '404', 'Not Found'),
-			array('HTTP/1.1 404    Not Found', '404', 'Not Found'),
+			array('HTTP/1.1 200 '),
+			array('HTTP/1.1 200    '),
+			array('HTTP/1.1 200'),
+			array('HTTP/1.1 200  OK', 'OK'),
 		);
 	}
 
@@ -1777,7 +1775,7 @@ class HttpSocketTest extends CakeTestCase {
  * @dataProvider statusProvider
  * @return void
  */
-	public function testResponseStatusParsing($status, $code, $msg = '') {
+	public function testResponseStatusParsing($status, $msg = '') {
 		$this->Socket->connected = true;
 		$serverResponse = $status . "\r\nDate: Mon, 16 Apr 2007 04:14:16 GMT\r\nServer: CakeHttp Server\r\n\r\n<h1>This is a test!</h1>";
 		$this->Socket->expects($this->at(1))->method('read')->will($this->returnValue($serverResponse));
@@ -1787,7 +1785,7 @@ class HttpSocketTest extends CakeTestCase {
 		$this->assertInstanceOf('HttpSocketResponse', $response);
 		$expected = array(
 			'http-version' => 'HTTP/1.1',
-			'code' => $code,
+			'code' => '200',
 			'reason-phrase' => $msg
 		);
 		$this->assertEquals($expected, $response['status']);

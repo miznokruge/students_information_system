@@ -1,5 +1,7 @@
 <?php
 /**
+ *
+ *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -14,16 +16,34 @@
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
 ?>
-<h2><?php echo $message; ?></h2>
+<!--<h2><?php //echo $message;                ?></h2>
 <p class="error">
-	<strong><?php echo __d('cake', 'Error'); ?>: </strong>
-	<?php printf(
-		__d('cake', 'The requested address %s was not found on this server.'),
-		"<strong>'{$url}'</strong>"
-	); ?>
-</p>
+    <strong><?php //echo __d('cake', 'Error');                ?>: </strong>
 <?php
-if (Configure::read('debug') > 0):
-	echo $this->element('exception_stack_trace');
-endif;
+//printf(
+//        __d('cake', 'The requested address %s was not found on this server.'), "<strong>'{$url}'</strong>"
+//);
 ?>
+</p>-->
+<?php
+//if (Configure::read('debug') > 0):
+//    echo $this->element('exception_stack_trace');
+//endif;
+?>
+<div class="col-md-12">
+    <div class="error-container">
+        <h1>Oops!</h1>
+        <h2>404 Not Found</h2>
+        <div class="error-details">
+            Sorry, an error has occured, Requested page not found!
+        </div> <!-- /error-details -->
+        <div class="error-actions">
+            <a href="<?php echo $this->webroot; ?>" class="btn btn-primary btn-lg">
+                <i class="icon-chevron-left"></i>
+                &nbsp;
+                Back to Dashboard
+            </a>
+            <?php echo $this->Html->link('<i class="icon-envelope"></i> Contact Support', array('controller' => 'faq', 'action' => 'ask_question'), array('class' => 'btn btn-default btn-lg', 'escape' => false)); ?>
+        </div> <!-- /error-actions -->
+    </div> <!-- /error-container -->
+</div>

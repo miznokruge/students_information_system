@@ -28,7 +28,7 @@ class ArmorsPlayerFixture extends CakeTestFixture {
  *
  * Used for Multi database fixture test
  *
- * @var string
+ * @var string 'test_database_three'
  */
 	public $useDbConfig = 'test_database_three';
 

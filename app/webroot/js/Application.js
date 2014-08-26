@@ -5,7 +5,6 @@ $(function() {
     });
     $(".select2").select2();
     $("#flash_message").delay(5000).fadeOut(1000);
-    $("img").unveil();
 });
 var Application = function() {
     var validationRules = getValidationRules();

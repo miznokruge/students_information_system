@@ -1,5 +1,7 @@
 <?php
 /**
+ *
+ *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -26,7 +28,7 @@ class Permission extends AppModel {
 /**
  * Explicitly disable in-memory query caching
  *
- * @var bool
+ * @var boolean
  */
 	public $cacheQueries = false;
 
@@ -69,7 +71,7 @@ class Permission extends AppModel {
  * @param string $aro ARO The requesting object identifier.
  * @param string $aco ACO The controlled object identifier.
  * @param string $action Action (defaults to *)
- * @return bool Success (true if ARO has access to action in ACO, false otherwise)
+ * @return boolean Success (true if ARO has access to action in ACO, false otherwise)
  */
 	public function check($aro, $aco, $action = '*') {
 		if (!$aro || !$aco) {
@@ -164,8 +166,8 @@ class Permission extends AppModel {
  * @param string $aro ARO The requesting object identifier.
  * @param string $aco ACO The controlled object identifier.
  * @param string $actions Action (defaults to *) Invalid permissions will result in an exception
- * @param int $value Value to indicate access type (1 to give access, -1 to deny, 0 to inherit)
- * @return bool Success
+ * @param integer $value Value to indicate access type (1 to give access, -1 to deny, 0 to inherit)
+ * @return boolean Success
  * @throws AclException on Invalid permission key.
  */
 	public function allow($aro, $aco, $actions = '*', $value = 1) {

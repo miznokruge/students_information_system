@@ -28,7 +28,7 @@ class ArmorFixture extends CakeTestFixture {
  *
  * Used for Multi database fixture test
  *
- * @var string
+ * @var string 'test2'
  */
 	public $useDbConfig = 'test2';
 

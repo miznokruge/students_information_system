@@ -1,0 +1,132 @@
+# LANGUAGE translation of CakePHP Application
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2012-07-14 20:08+0000\n"
+"PO-Revision-Date: YYYY-mm-DD HH:MM+ZZZZ\n"
+"Last-Translator: NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: Controller/UsersController.php:27
+msgid "Invalid username or password, try again"
+msgstr "Invalid username or password, try again"
+
+#: Controller/UsersController.php:45;77;113
+msgid "Invalid user"
+msgstr "Invalid user"
+
+#: Controller/UsersController.php:60;92
+msgid "The user has been saved"
+msgstr "The user has been saved"
+
+#: Controller/UsersController.php:97
+msgid "The user could not be saved. Please, try again."
+msgstr "The user could not be saved. Please, try again."
+
+#: Controller/UsersController.php:118
+msgid "User deleted"
+msgstr "User deleted"
+
+#: Controller/UsersController.php:122
+msgid "User was not deleted"
+msgstr "User was not deleted"
+
+#: View/Elements/flash_fail.ctp:3
+msgid "Error!"
+msgstr "Error!"
+
+#: View/Elements/flash_success.ctp:3
+msgid "Success!"
+msgstr "Success!"
+
+#: View/Elements/form_login.ctp:22
+#: View/Elements/form_users.ctp:26
+#: View/Users/home.ctp:14
+msgid "Username"
+msgstr "Username"
+
+#: View/Elements/form_login.ctp:23
+#: View/Elements/form_users.ctp:36
+msgid "Password"
+msgstr "Password"
+
+#: View/Elements/form_users.ctp:41
+msgid "Admin"
+msgstr "Administrador"
+
+#: View/Elements/form_users.ctp:41
+msgid "Author"
+msgstr "Author"
+
+#: View/Elements/form_users.ctp:48
+msgid "Submit"
+msgstr "Submit"
+
+#: View/Layouts/default.ctp:44
+msgid "Register"
+msgstr "Register"
+
+#: View/Users/home.ctp:6
+msgid "You are logged in"
+msgstr "You are logged in"
+
+#: View/Users/home.ctp:8
+msgid "All Users"
+msgstr "All Users"
+
+#: View/Users/home.ctp:15
+msgid "Role"
+msgstr "Role"
+
+#: View/Users/home.ctp:26
+msgid "View"
+msgstr "View"
+
+#: View/Users/home.ctp:27
+msgid "Edit"
+msgstr "Edit"
+
+#: View/Users/home.ctp:28
+msgid "Delete"
+msgstr "Delete"
+
+#: Model/User.php:validation for field username
+msgid "A username is required."
+msgstr "A username is required."
+
+#: Model/User.php:validation for field username
+msgid "This user already exists."
+msgstr "This user already exists."
+
+#: Model/User.php:validation for field password
+msgid "A password is required"
+msgstr "A password is required"
+
+#: Model/User.php:validation for field role
+msgid "Please enter a valid role"
+msgstr "Please enter a valid role"
+
+#: View/Errors/error400.ctp:21
+#: View/Errors/error500.ctp:21
+msgid "Error"
+msgstr "Error"
+
+#: View/Errors/error400.ctp:23
+msgid "The requested address %s was not found on this server."
+msgstr ""
+
+#: View/Errors/error500.ctp:22
+msgid "An Internal Error Has Occurred."
+msgstr ""
+
+#: webroot/test.php:87
+msgid "Debug setting does not allow access to this url."
+msgstr ""
+

@@ -52,7 +52,7 @@ class Mysql extends DboSource {
 /**
  * Reference to the PDO object connection
  *
- * @var PDO
+ * @var PDO $_connection
  */
 	protected $_connection = null;
 
@@ -73,7 +73,7 @@ class Mysql extends DboSource {
 /**
  * use alias for update and delete. Set to true if version >= 4.1
  *
- * @var bool
+ * @var boolean
  */
 	protected $_useAlias = true;
 
@@ -145,7 +145,7 @@ class Mysql extends DboSource {
  *   combined with `ssl_key`.
  * - `ssl_ca` The certificate authority for SSL connections.
  *
- * @return bool True if the database could be connected, else false
+ * @return boolean True if the database could be connected, else false
  * @throws MissingConnectionException
  */
 	public function connect() {
@@ -203,7 +203,7 @@ class Mysql extends DboSource {
 /**
  * Check whether the MySQL extension is installed/loaded
  *
- * @return bool
+ * @return boolean
  */
 	public function enabled() {
 		return in_array('mysql', PDO::getAvailableDrivers());
@@ -212,7 +212,7 @@ class Mysql extends DboSource {
 /**
  * Returns an array of sources (tables) in the database.
  *
- * @param mixed $data List of tables.
+ * @param mixed $data
  * @return array Array of table names in the database
  */
 	public function listSources($data = null) {
@@ -240,7 +240,7 @@ class Mysql extends DboSource {
 /**
  * Builds a map of the columns contained in a result
  *
- * @param PDOStatement $results The results to format.
+ * @param PDOStatement $results
  * @return void
  */
 	public function resultSet($results) {
@@ -374,10 +374,10 @@ class Mysql extends DboSource {
 /**
  * Generates and executes an SQL UPDATE statement for given model, fields, and values.
  *
- * @param Model $model The model to update.
- * @param array $fields The fields to update.
- * @param array $values The values to set.
- * @param mixed $conditions The conditions to use.
+ * @param Model $model
+ * @param array $fields
+ * @param array $values
+ * @param mixed $conditions
  * @return array
  */
 	public function update(Model $model, $fields = array(), $values = null, $conditions = null) {
@@ -418,9 +418,9 @@ class Mysql extends DboSource {
 /**
  * Generates and executes an SQL DELETE statement for given id/conditions on given model.
  *
- * @param Model $model The model to delete from.
- * @param mixed $conditions The conditions to use.
- * @return bool Success
+ * @param Model $model
+ * @param mixed $conditions
+ * @return boolean Success
  */
 	public function delete(Model $model, $conditions = null) {
 		if (!$this->_useAlias) {
@@ -459,7 +459,7 @@ class Mysql extends DboSource {
  * Sets the database encoding
  *
  * @param string $enc Database encoding
- * @return bool
+ * @return boolean
  */
 	public function setEncoding($enc) {
 		return $this->_execute('SET NAMES ' . $enc) !== false;
@@ -516,7 +516,7 @@ class Mysql extends DboSource {
  * Generate a MySQL Alter Table syntax for the given Schema comparison
  *
  * @param array $compare Result of a CakeSchema::compare()
- * @param string $table The table name.
+ * @param string $table
  * @return array Array of alter statements to make.
  */
 	public function alterSchema($compare, $table = null) {
@@ -796,7 +796,7 @@ class Mysql extends DboSource {
 /**
  * Check if the server support nested transactions
  *
- * @return bool
+ * @return boolean
  */
 	public function nestedTransactionSupported() {
 		return $this->useNestedTransactions && version_compare($this->getVersion(), '4.1', '>=');

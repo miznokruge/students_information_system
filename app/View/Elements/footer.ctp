@@ -7,23 +7,25 @@
                     <li><a href="javascript:;">About Us</a></li>
                     <li><a href="javascript:;">Twitter</a></li>
                     <li><a href="javascript:;">Facebook</a></li>
+                    <li><a href="javascript:;">Google+</a></li>
                 </ul>
             </div> <!-- /span3 -->
             <div class="col-md-3">
                 <h4>Support</h4>
                 <ul>
-                    <li><?php echo $this->Html->link(__("Frequently Asked Questions", true), "/faq") ?></li>
-                    <li><?php echo $this->Html->link(__("Contact Us", true), "/contact_us") ?></li>
+                    <li><a href="javascript:;">Frequently Asked Questions</a></li>
+                    <li><a href="javascript:;">Ask a Question</a></li>
+                    <li><a href="javascript:;">Video Tutorial</a></li>
+                    <li><a href="javascript:;">Feedback</a></li>
                 </ul>
             </div> <!-- /span3 -->
             <div class="col-md-3">
                 <h4>Legal</h4>
                 <ul>
-                    <li><?php echo $this->Html->link(__("Disclaimer", true), "/disclaimer") ?></li>
-                    <li><?php echo $this->Html->link(__("Privacy Policy", true), "/privacy_policy") ?></li>
-                    <li><?php echo $this->Html->link(__("Terms of Use", true), "/term_of_use") ?></li>
-                    <li><?php echo $this->Html->link(__("License", true), "/licence") ?></li>
-                    <li><?php echo $this->Html->link(__("Security", true), "/security") ?></li>
+                    <li><a href="javascript:;">License</a></li>
+                    <li><a href="javascript:;">Terms of Use</a></li>
+                    <li><a href="javascript:;">Privacy Policy</a></li>
+                    <li><a href="javascript:;">Security</a></li>
                 </ul>
             </div> <!-- /span3 -->
             <div class="col-md-3">

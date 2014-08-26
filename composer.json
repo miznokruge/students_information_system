@@ -27,5 +27,6 @@
 	},
 	"bin": [
 		"lib/Cake/Console/cake"
-	]
+	],
+     "require": { "sc0ttyd/ext-auth": "dev-master" }, "config": { "vendor-dir": "Vendor/" }  
 }

@@ -148,7 +148,7 @@ class Debugger {
 /**
  * Returns a reference to the Debugger singleton object instance.
  *
- * @param string $class Debugger class name.
+ * @param string $class
  * @return object
  */
 	public static function getInstance($class = null) {
@@ -167,6 +167,7 @@ class Debugger {
 /**
  * Recursively formats and outputs the contents of the supplied variable.
  *
+ *
  * @param mixed $var the variable to dump
  * @param int $depth The depth to output to. Defaults to 3.
  * @return void
@@ -182,7 +183,7 @@ class Debugger {
  * as well as export the variable using exportVar. By default the log is written to the debug log.
  *
  * @param mixed $var Variable or content to log
- * @param int $level type of log to use. Defaults to LOG_DEBUG
+ * @param integer $level type of log to use. Defaults to LOG_DEBUG
  * @param int $depth The depth to output to. Defaults to 3.
  * @return void
  * @link http://book.cakephp.org/2.0/en/development/debugging.html#Debugger::log
@@ -195,12 +196,12 @@ class Debugger {
 /**
  * Overrides PHP's default error handling.
  *
- * @param int $code Code of error
+ * @param integer $code Code of error
  * @param string $description Error description
  * @param string $file File on which error occurred
- * @param int $line Line that triggered the error
+ * @param integer $line Line that triggered the error
  * @param array $context Context
- * @return bool true if error was handled
+ * @return boolean true if error was handled
  * @deprecated Will be removed in 3.0. This function is superseded by Debugger::outputError().
  */
 	public static function showError($code, $description, $file = null, $line = null, $context = null) {
@@ -383,8 +384,8 @@ class Debugger {
  * applied.
  *
  * @param string $file Absolute path to a PHP file
- * @param int $line Line number to highlight
- * @param int $context Number of lines of context to extract above and below $line
+ * @param integer $line Line number to highlight
+ * @param integer $context Number of lines of context to extract above and below $line
  * @return array Set of lines highlighted
  * @see http://php.net/highlight_string
  * @link http://book.cakephp.org/2.0/en/development/debugging.html#Debugger::excerpt
@@ -463,7 +464,7 @@ class Debugger {
  * shown in an error message if CakePHP is deployed in development mode.
  *
  * @param string $var Variable to convert
- * @param int $depth The depth to output to. Defaults to 3.
+ * @param integer $depth The depth to output to. Defaults to 3.
  * @return string Variable as a formatted string
  * @link http://book.cakephp.org/2.0/en/development/debugging.html#Debugger::exportVar
  */
@@ -475,8 +476,8 @@ class Debugger {
  * Protected export function used to keep track of indentation and recursion.
  *
  * @param mixed $var The variable to dump.
- * @param int $depth The remaining depth.
- * @param int $indent The current indentation level.
+ * @param integer $depth The remaining depth.
+ * @param integer $indent The current indentation level.
  * @return string The dumped variable.
  */
 	protected static function _export($var, $depth, $indent) {
@@ -519,8 +520,8 @@ class Debugger {
  * - schema
  *
  * @param array $var The array to export.
- * @param int $depth The current depth, used for recursion tracking.
- * @param int $indent The current indentation level.
+ * @param integer $depth The current depth, used for recursion tracking.
+ * @param integer $indent The current indentation level.
  * @return string Exported array.
  */
 	protected static function _array(array $var, $depth, $indent) {
@@ -566,8 +567,8 @@ class Debugger {
  * Handles object to string conversion.
  *
  * @param string $var Object to convert
- * @param int $depth The current depth, used for tracking recursion.
- * @param int $indent The current indentation level.
+ * @param integer $depth The current depth, used for tracking recursion.
+ * @param integer $indent The current indentation level.
  * @return string
  * @see Debugger::exportVar()
  */
@@ -723,7 +724,7 @@ class Debugger {
 /**
  * Takes a processed array of data from an error and displays it in the chosen format.
  *
- * @param string $data Data to output.
+ * @param string $data
  * @return void
  */
 	public function outputError($data) {

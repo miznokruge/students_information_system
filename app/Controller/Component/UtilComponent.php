@@ -140,7 +140,7 @@ class UtilComponent extends Component {
                 $order_by = "Question.question DESC";
                 break;
             case 5:
-                $order_by = "Question.id RAND()";
+                $order_by = "RAND()";
                 break;
         endswitch;
 

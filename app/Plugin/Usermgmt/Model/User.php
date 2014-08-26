@@ -23,7 +23,7 @@ class User extends UserMgmtAppModel {
      *
      * @var array
      */
-    var $belongsTo=array('Usermgmt.UserGroup', 'Membership');
+    var $belongsTo=array('Usermgmt.UserGroup');
 
     /**
      * This model has following models

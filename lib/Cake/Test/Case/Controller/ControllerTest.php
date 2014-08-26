@@ -74,7 +74,7 @@ class ControllerPost extends CakeTestModel {
 /**
  * lastQuery property
  *
- * @var mixed
+ * @var mixed null
  */
 	public $lastQuery = null;
 
