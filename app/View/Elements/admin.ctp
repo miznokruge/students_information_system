@@ -1,6 +1,12 @@
-<pre>
-	<?php print_r($list_controller);?>
-</pre><?php
+<?php
+foreach($list_controller as $c){
+	echo $c['controller'].'<br>';
+	$s[strtolower($c['controller'])]=array(
+		'u'=>$c['controller'],
+		'l'=>$c['controller'],
+		'i'=>$c['controller']
+	);
+}
 $user = $this->UserAuth->getUser();
 $username = $user['User']['username'];
 $structure = array(
@@ -21,14 +27,7 @@ $structure = array(
             )
         )
     ),
-    'exam' => array(
-        'u' => 'exam/',
-        'l' => 'exam',
-        'i' => 'icon'),
-    'stat' => array(
-        'u' => 'statistics/',
-        'l' => 'Statistics',
-        'i' => 'icon'),
+    $s,
     'master-data' => array(
         'u' => '#',
         'l' => 'Master Data',
