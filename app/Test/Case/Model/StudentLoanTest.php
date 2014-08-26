@@ -14,7 +14,15 @@ class StudentLoanTest extends CakeTestCase {
  */
 	public $fixtures = array(
 		'app.student_loan',
-		'app.student'
+		'app.student',
+		'app.acievement',
+		'app.behavior',
+		'app.detention',
+		'app.student_address',
+		'app.address',
+		'app.student_event',
+		'app.event_type',
+		'app.transcript'
 	);
 
 /**

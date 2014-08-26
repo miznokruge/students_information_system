@@ -106,3 +106,10 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+
+CakePlugin::load(array(
+    'Usermgmt' => array('routes' => true, 'bootstrap' => true),
+));
+CakePlugin::load('BoostCake');
+CakePlugin::load('CakeSoftDelete');

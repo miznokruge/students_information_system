@@ -1,0 +1,38 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jul 28, 2014, 4:28:37 AM
+    Author     : miznokruge
+*/
+@font-face {
+    font-family: 'OpenSans';
+    src: url('../font/OpenSans-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BebasNeue';
+    src: url('../font/BebasNeue.otf');
+}
+
+@font-face{
+    font-family: 'YKB';
+    font-weight: bold;
+    src: url('../font/YanoneKaffeesatz-Bold.otf');    
+}
+@font-face{
+    font-family: 'YKL';
+    src: url('../font/YanoneKaffeesatz-Light.otf');    
+}
+@font-face{
+    font-family: 'YKR';
+    src: url('../font/YanoneKaffeesatz-Regular.otf');    
+}
+@font-face{
+    font-family: 'YKT';
+    src: url('../font/YanoneKaffeesatz-Thin.otf');    
+}

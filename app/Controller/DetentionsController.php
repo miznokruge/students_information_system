@@ -21,6 +21,16 @@ class DetentionsController extends AppController {
  * @return void
  */
 	public function index() {
+    
+        $cond='';
+        if ($this->request->query) {
+            $cond=$this->request->query['search'];
+            $this->Paginator->settings = array(
+                'conditions' =>array('Detention.name LIKE ' => "$cond%"),
+                'limit' => 20
+            );
+        }
+        $this->set('search_term',$cond);
 		$this->Detention->recursive = 0;
 		$this->set('detentions', $this->Paginator->paginate());
 	}

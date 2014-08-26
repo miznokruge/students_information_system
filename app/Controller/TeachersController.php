@@ -21,6 +21,16 @@ class TeachersController extends AppController {
  * @return void
  */
 	public function index() {
+    
+        $cond='';
+        if ($this->request->query) {
+            $cond=$this->request->query['search'];
+            $this->Paginator->settings = array(
+                'conditions' =>array('Teacher.name LIKE ' => "$cond%"),
+                'limit' => 20
+            );
+        }
+        $this->set('search_term',$cond);
 		$this->Teacher->recursive = 0;
 		$this->set('teachers', $this->Paginator->paginate());
 	}

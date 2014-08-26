@@ -21,6 +21,16 @@ class StudentAddressesController extends AppController {
  * @return void
  */
 	public function index() {
+    
+        $cond='';
+        if ($this->request->query) {
+            $cond=$this->request->query['search'];
+            $this->Paginator->settings = array(
+                'conditions' =>array('StudentAddress.name LIKE ' => "$cond%"),
+                'limit' => 20
+            );
+        }
+        $this->set('search_term',$cond);
 		$this->StudentAddress->recursive = 0;
 		$this->set('studentAddresses', $this->Paginator->paginate());
 	}

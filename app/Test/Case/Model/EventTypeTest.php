@@ -14,7 +14,15 @@ class EventTypeTest extends CakeTestCase {
  */
 	public $fixtures = array(
 		'app.event_type',
-		'app.student_event'
+		'app.student_event',
+		'app.student',
+		'app.acievement',
+		'app.behavior',
+		'app.detention',
+		'app.student_address',
+		'app.address',
+		'app.student_loan',
+		'app.transcript'
 	);
 
 /**

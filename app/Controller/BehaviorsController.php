@@ -21,6 +21,16 @@ class BehaviorsController extends AppController {
  * @return void
  */
 	public function index() {
+    
+        $cond='';
+        if ($this->request->query) {
+            $cond=$this->request->query['search'];
+            $this->Paginator->settings = array(
+                'conditions' =>array('Behavior.name LIKE ' => "$cond%"),
+                'limit' => 20
+            );
+        }
+        $this->set('search_term',$cond);
 		$this->Behavior->recursive = 0;
 		$this->set('behaviors', $this->Paginator->paginate());
 	}

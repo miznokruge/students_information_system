@@ -31,8 +31,8 @@ class DetentionFixture extends CakeTestFixture {
 	public $records = array(
 		array(
 			'id' => 1,
-			'date' => '2014-08-25 18:49:11',
-			'date_end' => '2014-08-25 18:49:11',
+			'date' => '2014-08-25 20:24:30',
+			'date_end' => '2014-08-25 20:24:30',
 			'summary' => 'Lorem ipsum dolor sit amet',
 			'details' => 'Lorem ipsum dolor sit amet',
 			'student_id' => 1

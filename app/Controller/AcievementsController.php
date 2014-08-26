@@ -21,6 +21,16 @@ class AcievementsController extends AppController {
  * @return void
  */
 	public function index() {
+    
+        $cond='';
+        if ($this->request->query) {
+            $cond=$this->request->query['search'];
+            $this->Paginator->settings = array(
+                'conditions' =>array('Acievement.name LIKE ' => "$cond%"),
+                'limit' => 20
+            );
+        }
+        $this->set('search_term',$cond);
 		$this->Acievement->recursive = 0;
 		$this->set('acievements', $this->Paginator->paginate());
 	}

@@ -21,6 +21,16 @@ class StudentLoansController extends AppController {
  * @return void
  */
 	public function index() {
+    
+        $cond='';
+        if ($this->request->query) {
+            $cond=$this->request->query['search'];
+            $this->Paginator->settings = array(
+                'conditions' =>array('StudentLoan.name LIKE ' => "$cond%"),
+                'limit' => 20
+            );
+        }
+        $this->set('search_term',$cond);
 		$this->StudentLoan->recursive = 0;
 		$this->set('studentLoans', $this->Paginator->paginate());
 	}

@@ -21,6 +21,16 @@ class StudentEventsController extends AppController {
  * @return void
  */
 	public function index() {
+    
+        $cond='';
+        if ($this->request->query) {
+            $cond=$this->request->query['search'];
+            $this->Paginator->settings = array(
+                'conditions' =>array('StudentEvent.name LIKE ' => "$cond%"),
+                'limit' => 20
+            );
+        }
+        $this->set('search_term',$cond);
 		$this->StudentEvent->recursive = 0;
 		$this->set('studentEvents', $this->Paginator->paginate());
 	}

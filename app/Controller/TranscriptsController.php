@@ -21,6 +21,16 @@ class TranscriptsController extends AppController {
  * @return void
  */
 	public function index() {
+    
+        $cond='';
+        if ($this->request->query) {
+            $cond=$this->request->query['search'];
+            $this->Paginator->settings = array(
+                'conditions' =>array('Transcript.name LIKE ' => "$cond%"),
+                'limit' => 20
+            );
+        }
+        $this->set('search_term',$cond);
 		$this->Transcript->recursive = 0;
 		$this->set('transcripts', $this->Paginator->paginate());
 	}

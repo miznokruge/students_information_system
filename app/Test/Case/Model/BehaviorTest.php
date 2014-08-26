@@ -14,7 +14,15 @@ class BehaviorTest extends CakeTestCase {
  */
 	public $fixtures = array(
 		'app.behavior',
-		'app.student'
+		'app.student',
+		'app.acievement',
+		'app.detention',
+		'app.student_address',
+		'app.address',
+		'app.student_event',
+		'app.event_type',
+		'app.student_loan',
+		'app.transcript'
 	);
 
 /**

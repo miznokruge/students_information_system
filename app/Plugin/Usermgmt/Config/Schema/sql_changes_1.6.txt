@@ -1,0 +1,12 @@
+ALTER TABLE `users` ADD `salt` TEXT NULL AFTER `password`;
+ALTER TABLE `users` CHANGE `active` `email_verified` INT( 1 ) NULL DEFAULT '0';
+ALTER TABLE `users` ADD `active` INT( 1 ) NOT NULL DEFAULT '0' AFTER `email_verified`;
+ALTER TABLE `users` ADD `ip_address` VARCHAR( 50 ) NULL AFTER `active`;
+UPDATE `users` SET active =1 WHERE 1;
+INSERT INTO `user_group_permissions` (`id`, `user_group_id`, `controller`, `action`, `allowed`) VALUES
+(null, 1, 'Users', 'makeActiveInactive', 1),
+(null, 2, 'Users', 'makeActiveInactive', 0),
+(null, 3, 'Users', 'makeActiveInactive', 0),
+(null, 1, 'Users', 'verifyEmail', 1),
+(null, 2, 'Users', 'verifyEmail', 0),
+(null, 3, 'Users', 'verifyEmail', 0);
