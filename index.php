@@ -1,25 +1,4 @@
 <?php
-/** 
-
-
-rewrew
-
-
-rewrew
-
-
-
-
-rwerew
-
-
-
-
-
-rewrew
-
-rewrewr
-**/
 /**
  * Requests collector.
  *
